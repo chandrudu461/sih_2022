@@ -94,8 +94,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
 }

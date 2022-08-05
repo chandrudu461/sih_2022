@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/drawable/border.xml" value="0.2545" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_hei_related.xml" value="0.72" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_related.xml" value="0.6" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_forgot_password.xml" value="0.24564102564102563" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_profile.xml" value="0.25" />
@@ -13,6 +15,8 @@
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency.xml" value="0.21220159151193635" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei.xml" value="0.4" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/spinner_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_funding_agency.xml" value="0.1" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_hei.xml" value="0.1" />
       </map>
     </option>
   </component>

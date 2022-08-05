@@ -110,11 +110,12 @@
             android:id="@+id/uploadIDCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="36dp"
             android:drawableLeft="@drawable/ic_baseline_account_circle_24"
             android:text="Upload Your ID"
-            app:layout_constraintTop_toBottomOf="@+id/gender"
-            tools:layout_editor_absoluteX="35dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gender" />
 
         <TextView
             android:id="@+id/uploadDocProof"
