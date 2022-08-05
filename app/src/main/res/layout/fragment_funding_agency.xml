@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="scroll"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".Fragments.FundingAgency">
+
+            <!-- TODO: Update blank fragment layout -->
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:hint="Selecty Type Of Agency
+"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/name"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/profilepic"
+                app:layout_constraintVertical_bias="0.060000002">
+
+                <AutoCompleteTextView
+                    android:id="@+id/User_autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <ImageView
+                android:id="@+id/profilepic"
+                android:layout_width="217dp"
+                android:layout_height="204dp"
+                android:layout_marginTop="90dp"
+                android:src="@drawable/ic_baseline_account_circle_24"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Name of Funding Agency"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/year"
+                app:layout_constraintStart_toStartOf="@+id/year"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+            <EditText
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Year of Establishment"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="@+id/founder"
+                app:layout_constraintStart_toStartOf="@+id/founder"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <EditText
+                android:id="@+id/founder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Name of Founder"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="@+id/phn_no"
+                app:layout_constraintStart_toStartOf="@+id/phn_no"
+                app:layout_constraintTop_toBottomOf="@+id/year" />
+
+            <EditText
+                android:id="@+id/phn_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="@+id/portfolio"
+                app:layout_constraintStart_toStartOf="@+id/portfolio"
+                app:layout_constraintTop_toBottomOf="@+id/founder" />
+
+            <EditText
+                android:id="@+id/portfolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="Portfolio link"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/social_links"
+                app:layout_constraintStart_toStartOf="@+id/social_links"
+                app:layout_constraintTop_toBottomOf="@+id/phn_no" />
+
+            <EditText
+                android:id="@+id/social_links"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:ems="10"
+                android:hint="social links"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/document"
+                app:layout_constraintStart_toStartOf="@+id/document"
+                app:layout_constraintTop_toBottomOf="@+id/portfolio" />
+
+            <TextView
+                android:id="@+id/document"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:drawableLeft="@drawable/ic_baseline_picture_as_pdf_24"
+                android:drawablePadding="5dp"
+                android:hint="Attach Declaration pdf"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView_indian_states"
+                app:layout_constraintStart_toStartOf="@+id/textView_indian_states"
+                app:layout_constraintTop_toBottomOf="@+id/social_links" />
+
+            <TextView
+                android:id="@+id/textView_indian_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+
+                android:layout_marginEnd="35dp"
+                android:hint="Select State"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_indian_states"
+                app:layout_constraintHorizontal_bias="0.105"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/document" />
+
+            <Spinner
+                android:id="@+id/spinner_indian_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView_indian_districts"
+                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintStart_toStartOf="@+id/textView_indian_districts"
+                app:layout_constraintTop_toBottomOf="@+id/textView_indian_states" />
+
+            <TextView
+                android:id="@+id/textView_indian_districts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+                android:hint="Select District"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_indian_districts"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/spinner_indian_districts"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_states" />
+
+            <Spinner
+                android:id="@+id/spinner_indian_districts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="35dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_indian_districts"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginBottom="396dp"
+                android:text="submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

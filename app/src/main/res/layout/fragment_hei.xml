@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Hei">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:contentDescription="@string/scroll"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="152dp"
+                android:contentDescription="@string/profilepic"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:ems="10"
+                android:hint="Name of HEI"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/yearHei"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/yearHei"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <EditText
+                android:id="@+id/yearHei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Year of Establishment"
+                android:inputType="date"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/code"
+                app:layout_constraintStart_toStartOf="@+id/code"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <EditText
+                android:id="@+id/code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="AICTE Code"
+                android:inputType="number"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/link"
+                app:layout_constraintStart_toStartOf="@+id/link"
+                app:layout_constraintTop_toBottomOf="@+id/yearHei" />
+
+            <EditText
+                android:id="@+id/link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="link"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_indian_states"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView_indian_states"
+                app:layout_constraintTop_toBottomOf="@+id/code" />
+
+            <TextView
+                android:id="@+id/textView_indian_states"
+                android:layout_width="211dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:hint="Select State"
+                app:layout_constraintStart_toStartOf="@+id/spinner_indian_states"
+                app:layout_constraintTop_toBottomOf="@id/link" />
+
+            <Spinner
+                android:id="@+id/spinner_indian_states"
+                android:layout_width="211dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView_indian_districts"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView_indian_districts"
+                app:layout_constraintTop_toBottomOf="@+id/textView_indian_states" />
+
+            <TextView
+                android:id="@+id/textView_indian_districts"
+                android:layout_width="211dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:hint="Select District"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_indian_districts"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/spinner_indian_districts"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_states" />
+
+            <Spinner
+                android:id="@+id/spinner_indian_districts"
+                android:layout_width="211dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/button"
+                app:layout_constraintStart_toStartOf="@+id/button"
+                app:layout_constraintTop_toBottomOf="@+id/textView_indian_districts" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="91dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:text="Submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pdfSelect" />
+
+            <TextView
+                android:id="@+id/pdfSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:drawableLeft="@drawable/ic_baseline_picture_as_pdf_24"
+                android:text="Select Your Broucher PDF"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="72dp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts"
+                app:layout_constraintVertical_bias="0.298" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>
