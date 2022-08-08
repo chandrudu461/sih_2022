@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,13 +29,20 @@ public class AdminYesOrNo extends AppCompatActivity {
     Button submit;
     EditText textBox;
     ImageView i;
-
+    String user = (String) getIntent().getSerializableExtra("UserType");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_yes_or_no);
 
-        presentUser = (FundingAgencyPostModel)getIntent().getSerializableExtra("UserToBeVerified");
+        if(user == "FundingAgency"){
+            presentUser = (FundingAgencyPostModel)getIntent().getSerializableExtra("UserToBeVerified");
+        } else if (user == "Hei") {
+            presentUser = (FundingAgencyPostModel) getIntent().getSerializableExtra("UserToBeVerified");
+        }
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Funding Agency").child(presentUser.getUid());
 //                .child(presentUser.getUid());
 
@@ -44,7 +53,7 @@ public class AdminYesOrNo extends AppCompatActivity {
         t4 = findViewById(R.id.txtView_yearofEst);
 
         submit = findViewById(R.id.adminSubmit);
-        textBox=findViewById(R.id.textBox);
+        textBox= findViewById(R.id.textBox);
 
 
         t1.setText(presentUser.agencyType);
@@ -117,6 +126,6 @@ public class AdminYesOrNo extends AppCompatActivity {
                 }
             }
         });
-
     }
+
 }

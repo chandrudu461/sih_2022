@@ -50,15 +50,15 @@ public class ProfileActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             switch(i){
                 case 0:
-                    sharedPreferences.edit().putString("userType","HEI");
+                    sharedPreferences.edit().putString("userType","HEI").commit();
                     setFragment(new Hei());
                     break;
                 case 1:
-                    sharedPreferences.edit().putString("userType","FundingAgency");
+                    sharedPreferences.edit().putString("userType","FundingAgency").commit();
                     setFragment(new FundingAgency());
                     break;
                 case 2:
-                    sharedPreferences.edit().putString("userType","Admin");
+                    sharedPreferences.edit().putString("userType","Admin").commit();
                     setFragment(new Admin());
                     break;
                 }

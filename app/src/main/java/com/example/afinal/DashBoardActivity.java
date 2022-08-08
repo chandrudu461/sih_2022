@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class DashBoardActivity extends AppCompatActivity {
 
@@ -55,9 +56,10 @@ public class DashBoardActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         // we need redirect the respective menu according to the user
-
+        String user=sharedPreferences.getString("userType","user");
         if(sharedPreferences.getString("userType","user") == "Admin"){
             inflater.inflate(R.menu.navigation_menu_admin,menu);
+            Toast.makeText(this, "admin"+user, Toast.LENGTH_SHORT).show();
         }
         if(sharedPreferences.getString("userType","user") == "HEI"){
             inflater.inflate(R.menu.navigation_menu_hei, menu);
@@ -65,28 +67,40 @@ public class DashBoardActivity extends AppCompatActivity {
         if(sharedPreferences.getString("userType","user") == "FundingAgency"){
             inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
         }
-
+        Toast.makeText(this, "NNot admin"+user, Toast.LENGTH_SHORT).show();
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home){
-            drawerLayout.openDrawer(GravityCompat.START);
+        switch (item.getItemId()){
+            case android.R.id.home:   drawerLayout.openDrawer(GravityCompat.START);
+                                      return true;
+            case R.id.menuitem_verify_users: getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AdminRetrieval()).commit();
+                                        return true;
+            case R.id.menuitem_managePayments: getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
+                                         return true;
+//            case R.id.menuitem_proposed_fund:getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
+
+            default:  drawerLayout.openDrawer(GravityCompat.START);
+
         }
-        if(item.getItemId() == R.id.menuitem_managePayments){
-
-            // Payment Verify fragment Admin to be replaced
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
-
-        }
-
-        if(item.getItemId() == R.id.menuitem_verify_users){
-
-            //  verify user Fragment
+//        if(item.getItemId()==android.R.id.home){
+//
+//        }
+//        if(item.getItemId() == R.id.menuitem_managePayments){
+//
+//            // Payment Verify fragment Admin to be replaced
 //            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
-            startActivity(new Intent(DashBoardActivity.this,AdminYesOrNo.class));
-        }
+//
+//        }
+//
+//        if(item.getItemId() == R.id.menuitem_verify_users){
+//
+//            //  verify user Fragment
+//            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AdminYesOrNo()).commit();
+//            //startActivity(new Intent(DashBoardActivity.this,AdminYesOrNo.class));
+//        }
 
 
         return super.onOptionsItemSelected(item);

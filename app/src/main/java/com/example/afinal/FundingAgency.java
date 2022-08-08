@@ -354,7 +354,8 @@ public class FundingAgency extends Fragment {
                         }
                     }
                 });
-
+                
+                startActivity(new Intent(getContext(),DashBoardActivity.class));
             }
         });
         return view;

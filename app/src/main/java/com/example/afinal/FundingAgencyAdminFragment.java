@@ -62,8 +62,6 @@ public class FundingAgencyAdminFragment extends Fragment {
             }
         });
 
-
-
         return view;
     }
 }

@@ -6,20 +6,23 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-public class AdminRetrieval extends AppCompatActivity {
+public class AdminRetrieval extends Fragment {
     private Button heiButton,fundingAgencyButton;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_retrieval);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_admin_retrieval);
+        View view = inflater.inflate(R.layout.activity_admin_retrieval,container,false);
 
-        heiButton = findViewById(R.id.heiButton);
-        fundingAgencyButton = findViewById(R.id.fundingAgencyButton);
+        heiButton = view.findViewById(R.id.heiButton);
+        fundingAgencyButton = view.findViewById(R.id.fundingAgencyButton);
 
 
         heiButton.setOnClickListener(new View.OnClickListener() {
@@ -37,11 +40,13 @@ public class AdminRetrieval extends AppCompatActivity {
             }
         });
 
+        return view;
+
     }
 
 
     private void setFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer,fragment);
         fragmentTransaction.commit();
     }

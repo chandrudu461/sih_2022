@@ -69,6 +69,7 @@ public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerA
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(context,AdminYesOrNo.class);
+                in.putExtra("UserType","FundingAgency");
                 in.putExtra("UserToBeVerified", listdata.get(position));
                 context.startActivity(in);
             }

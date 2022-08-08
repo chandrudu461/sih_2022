@@ -1,6 +1,7 @@
 package com.example.afinal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class RecyclerAdapterHei extends RecyclerView.Adapter<RecyclerAdapterHei.ViewHolder> {
@@ -42,6 +44,16 @@ public class RecyclerAdapterHei extends RecyclerView.Adapter<RecyclerAdapterHei.
         holder.textview_view_type.setText(text);
         Picasso.with(context).load(myListData.imageUri).into(holder.imageview);
 
+        holder.registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context,AdminYesOrNo.class);
+                in.putExtra("userType","Hei");
+                in.putExtra("UserToBeVerified", (Serializable) listdata.get(position));
+                context.startActivity(in);
+            }
+        });
+
     }
 
     @Override
@@ -70,7 +82,5 @@ public class RecyclerAdapterHei extends RecyclerView.Adapter<RecyclerAdapterHei.
 
         }
     }
-
-
 
 }

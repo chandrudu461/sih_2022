@@ -9,7 +9,7 @@ public class FundingAgencyPSPostModel {
     public String eligibility;
     public String deliverables;
 
-    public FundingAgencyPSPostModel(){
+    public FundingAgencyPSPostModel() {
 
     }
 
