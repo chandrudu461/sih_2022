@@ -1,5 +1,7 @@
 package com.example.afinal;
 
+import android.util.Log;
+
 public class FundingAgencyPSPostModel {
     public String problemStatement;
     public String description;
@@ -10,6 +12,12 @@ public class FundingAgencyPSPostModel {
     public String deliverables;
 
     public FundingAgencyPSPostModel() {
+        problemStatement=new String("test project");
+        description=new String("des test");
+        budget=new String("7634");
+        duration=new String("5 months");
+        eligibility =new String("eligi test");
+        deliverables=new String("deliv test ");
 
     }
 
@@ -27,6 +35,7 @@ public class FundingAgencyPSPostModel {
         this.deadline = deadline;
         this.eligibility = eligibility;
         this.deliverables = deliverables;
+        Log.d("values", "FundingAgencyPSPostModel: "+this.problemStatement+this.deliverables+this.eligibility);
     }
 
     public String getProblemStatement() {

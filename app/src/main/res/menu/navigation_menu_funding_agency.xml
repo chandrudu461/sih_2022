@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menuitem_upload_fund"
         android:icon="@drawable/upload_problem"
         android:title="Upload Problem statement" />
     <item
         android:id="@+id/menuitem_proposed_fund"
+        android:tooltipText="proposed fun"
         android:icon="@drawable/uploaded_problem"
-        android:title="Uploaded Problem Statements" />
+        android:title="Uploaded Problem Statements"
+        tools:ignore="UnusedAttribute" />
     <item
         android:id="@+id/menuitem_ongoing_fund"
         android:icon="@drawable/ongoing_problem"

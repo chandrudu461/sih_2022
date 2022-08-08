@@ -22,7 +22,7 @@
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_admin.xml" value="0.4" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency.xml" value="0.21220159151193635" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency_admin.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency_post.xml" value="0.4" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency_post.xml" value="0.1" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei.xml" value="0.4" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei_admin.xml" value="0.25" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei_proposal.xml" value="0.176" />
@@ -33,6 +33,7 @@
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/spinner_layout.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_funding_agency.xml" value="0.16" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_hei.xml" value="0.536" />
+        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu-v26/navigation_menu_funding_agency.xml" value="0.10520833333333333" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_admin.xml" value="0.6" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_default.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_funding_agency.xml" value="0.46875" />

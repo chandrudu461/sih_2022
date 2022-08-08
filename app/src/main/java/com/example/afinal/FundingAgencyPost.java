@@ -29,9 +29,7 @@ public class FundingAgencyPost extends Fragment {
     DocumentReference documentReference;
     FirebaseFirestore firebaseFirestore;
 
-    String problemStatement,description,budget,duration,deadline,eligibility,deliverables;
-
-    FundingAgencyPSPostModel fundingAgencyPSPostModel;
+    private FundingAgencyPSPostModel fundingAgencyPSPostModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +39,7 @@ public class FundingAgencyPost extends Fragment {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        documentReference = firebaseFirestore.collection("FundingAgencyPost").document();
+        documentReference = firebaseFirestore.collection("FundingAgencyPost").document("jsdkjlskjfl");
 
         problemStatementText = view.findViewById(R.id.problemStatement);
         descriptionText = view.findViewById(R.id.description);
@@ -53,22 +51,42 @@ public class FundingAgencyPost extends Fragment {
 
         post = view.findViewById(R.id.post);
 
-        problemStatement = problemStatementText.getText().toString().trim();
-        description = descriptionText.getText().toString().trim();
-        budget = budgetText.getText().toString().trim();
-        duration = durationText.getText().toString().trim();
-        deadline = deadlineText.getText().toString().trim();
-        eligibility = eligibilityText.getText().toString().trim();
-        deliverables = deliverablesText.getText().toString().trim();
+
+        String problemStatement = problemStatementText.getText().toString();
+        String description = descriptionText.getText().toString();
+        String budget = budgetText.getText().toString();
+        String duration = durationText.getText().toString();
+        String deadline = deadlineText.getText().toString();
+        String eligibility = eligibilityText.getText().toString();
+        String deliverables = deliverablesText.getText().toString();
 
 
 
-        fundingAgencyPSPostModel = new FundingAgencyPSPostModel(problemStatement,description,budget,duration,deadline,eligibility,deliverables);
 
+        //fundingAgencyPSPostModel= new FundingAgencyPSPostModel();
+        /*
+        fundingAgencyPSPostModel.setProblemStatement(problemStatement);
+        fundingAgencyPSPostModel.setDescription(description);
+        fundingAgencyPSPostModel.setBudget(budget);
+        fundingAgencyPSPostModel.setDuration(duration);
+        */
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//                fundingAgencyPSPostModel = new FundingAgencyPSPostModel(problemStatement,description,budget,duration,deadline,eligibility,deliverables);
+                    fundingAgencyPSPostModel = new FundingAgencyPSPostModel();
+                    fundingAgencyPSPostModel.setProblemStatement(problemStatement);
+                    fundingAgencyPSPostModel.setDescription(description);
+                    fundingAgencyPSPostModel.setBudget(budget);
+                    fundingAgencyPSPostModel.setDuration(duration);
+                    fundingAgencyPSPostModel.setDeadline(deadline);
+                    fundingAgencyPSPostModel.setEligibility(eligibility);
+                    fundingAgencyPSPostModel.setDeliverables(deliverables);
+
+                Toast.makeText(getContext(), fundingAgencyPSPostModel.problemStatement+"adf"+fundingAgencyPSPostModel.description, Toast.LENGTH_SHORT).show();
+
                 documentReference.set(fundingAgencyPSPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

@@ -80,7 +80,7 @@ public class DashBoardActivity extends AppCompatActivity {
                                         return true;
             case R.id.menuitem_managePayments: getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
                                          return true;
-//            case R.id.menuitem_proposed_fund:getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
+            case R.id.menuitem_proposed_fund:getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new FundingAgencyPost()).commit();
 
             default:  drawerLayout.openDrawer(GravityCompat.START);
 

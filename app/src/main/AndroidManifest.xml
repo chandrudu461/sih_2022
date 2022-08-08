@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".TestingProblemStatements"
             android:exported="false" />
         <activity
             android:name=".WaitingUser"
@@ -40,7 +40,7 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".TestingProblemStatements"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
