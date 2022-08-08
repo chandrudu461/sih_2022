@@ -332,13 +332,15 @@ public class FundingAgency extends Fragment {
                 String phoneNumber = phoneNumberText.getText().toString().trim();
                 String portFolioLink = portFolioText.getText().toString().trim();
                 String socialLinks = socialLinksText.getText().toString().trim();
+                String uid = FirebaseAuth.getInstance().getUid();
                 String state = selectedState;
                 String district = selectedDistrict;
                 Boolean isVerified = false;
 
                 FundingAgencyPostModel fundingAgencyPostModel = new FundingAgencyPostModel(typeOfAgency,nameOfFundingAgency,yearOfEstablishment,nameOfFunder,phoneNumber,portFolioLink,socialLinks,state,district,isVerified);
-                fundingAgencyPostModel.setDeclarationPdfUri(fundingAgencyPostModel.declarationPdfUri);
-                fundingAgencyPostModel.setImageUri(selectedImageUri.toString());
+//                fundingAgencyPostModel.setDeclarationPdfUri(fundingAgencyPostModel.declarationPdfUri);
+//                fundingAgencyPostModel.setImageUri(fundingAgencyPostModel.imageUri);
+                fundingAgencyPostModel.setUid(uid);
                 firebaseUtilities.uploadFundingAgencyPdf(selectedPDFDeclarationUri,fundingAgencyPostModel);
                 firebaseUtilities.uploadFundingAgencyImage(selectedImageUri,fundingAgencyPostModel);
                 databaseReference.setValue(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -389,6 +391,7 @@ public class FundingAgency extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE) {  // Checks if the image is selected or not.
             selectedImageUri = data.getData();
+            Toast.makeText(getContext(), selectedImageUri.toString(), Toast.LENGTH_SHORT).show();
             profilepic.setImageURI(selectedImageUri);
         }
 //        if(requestCode == 13 && resultCode == RESULT_OK && data != null && data.getData() != null){

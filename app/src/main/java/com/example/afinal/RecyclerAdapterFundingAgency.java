@@ -2,6 +2,7 @@ package  com.example.afinal;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.example.afinal.FundingAgency;
 import com.example.afinal.FundingAgencyPostModel;
 import com.example.afinal.R;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,15 +30,15 @@ public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerA
         this.context=context;
     }
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerAdapterFundingAgency.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.view_holder_funding_agency, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
+        RecyclerAdapterFundingAgency.ViewHolder viewHolder = new RecyclerAdapterFundingAgency.ViewHolder(listItem);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerAdapterFundingAgency.ViewHolder holder, int position) {
         final FundingAgencyPostModel myListData = listdata.get(position);
         String text = myListData.agencyType;
         holder.textview_name.setText(myListData.nameOfFundingAgency);
@@ -43,8 +46,33 @@ public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerA
         holder.textview_phnNo.setText( "Phone -" + myListData.phoneNumber);
         holder.textView_State.setText( myListData.state);
         holder.textview_view_type.setText(text);
+//        Picasso.with(context).load("https://firebasestorage.googleapis.com/v0/b/final-2923f.appspot.com/o/Images%2FFunding%20Agency%2FYXVyo1qxsVMZPMboNACl6kX98FH3%2FAdminProfile.jpg?alt=media&token=913ac272-4163-4223-8e52-f4901e509d9b")
+//                .resize(100,100).centerCrop().into(holder.imageview);
+
         Picasso.with(context).load(myListData.imageUri).into(holder.imageview);
 
+//        Picasso.with(context.getApplicationContext()).load(myListData.imageUri).networkPolicy(NetworkPolicy.OFFLINE)
+//                .placeholder(R.drawable.ic_baseline_picture_as_pdf_24).into(holder.imageview, new Callback() {
+//                            @Override
+//                            public void onSuccess() {
+//
+//                            }
+//
+//                            @Override
+//                            public void onError() {
+//
+//                                Toast.makeText(context, myListData.imageUri, Toast.LENGTH_SHORT).show();
+//                                Picasso.with(context).load(myListData.imageUri).placeholder(R.drawable.ic_baseline_picture_as_pdf_24).into(holder.imageview);
+//                            }
+//                        });
+        holder.registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(context,AdminYesOrNo.class);
+                in.putExtra("UserToBeVerified", listdata.get(position));
+                context.startActivity(in);
+            }
+        });
     }
 
 

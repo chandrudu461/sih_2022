@@ -19,6 +19,8 @@
         <item>Admin</item>
     </string-array>
 
+    <string name="acceptTextBox"> Generate Razor Pay id For the user</string>
+    <string name="regectTextBox"> Enter reason for rejection!!!</string>
 
     <string name="role_select">Select Your Role</string>
 
@@ -955,4 +957,11 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_drawer">open_drawer</string>
+    <string name="close_drawer">close_drawer</string>
+    <string name="shared_preferences_user_details">shared_preferences_user_details</string>
+    <string name="proposed_ideas">proposed_ideas</string>
+    <string name="ongoing_ideas">ongoing_ideas</string>
+    <string name="completed_ideas">completed_ideas</string>
+    <string name="problem_feed">problem_feed</string>
 </resources>

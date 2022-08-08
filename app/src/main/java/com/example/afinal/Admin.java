@@ -124,22 +124,25 @@ public class Admin extends Fragment {
                 adminPostModel.setDepartment(department);
                 adminPostModel.setGender(gender);
 
-                firebaseUtilities.uploadIdCard(selectedPDFIdUri,adminPostModel);
-                firebaseUtilities.uploadPDFFile(selectedPDFUri,adminPostModel);
-                firebaseUtilities.uploadPDFDeclarationFile(selectedPDFDeclarationUri,adminPostModel);
-                firebaseUtilities.uploadImage(selectedImageUri,adminPostModel);
+                firebaseUtilities.uploadIdCard(selectedPDFIdUri, adminPostModel);
+                firebaseUtilities.uploadPDFFile(selectedPDFUri, adminPostModel);
+                firebaseUtilities.uploadPDFDeclarationFile(selectedPDFDeclarationUri, adminPostModel);
+                firebaseUtilities.uploadImage(selectedImageUri, adminPostModel);
                 databaseReference.setValue(adminPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getContext(),"Data is sent to realtime database!!!", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getContext(), "Data is sent to realtime database!!!", Toast.LENGTH_SHORT).show();
+                        } else {
                             Toast.makeText(getContext(), "Failed to send the data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+                startActivity(new Intent(getContext(),DashBoardActivity.class));
+
             }
+
         });
 
 

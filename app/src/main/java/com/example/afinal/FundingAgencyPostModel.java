@@ -1,8 +1,80 @@
 package com.example.afinal;
 
-public class FundingAgencyPostModel {
+import android.widget.ArrayAdapter;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class FundingAgencyPostModel implements Serializable {
     public String agencyType,nameOfFundingAgency,yearOfEstablishment,nameOfFunder,phoneNumber,portFolioLink,socialLinks,declarationPdfUri,state,district;
     public Boolean isVerified;
+    public String razorPayId;
+    public String declineReason;
+    public Boolean isDeclined;
+
+    public Boolean getDeclined() {
+        return isDeclined;
+    }
+
+    public void setDeclined(Boolean declined) {
+        isDeclined = declined;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String uid;
+
+    public Boolean getIsDeclined() {
+        return isDeclined;
+    }
+
+    public void setIsDeclined(Boolean isDeclined) {
+        this.isDeclined = isDeclined;
+    }
+
+    public String getDeclineReason() {
+        return declineReason;
+    }
+
+    public void setDeclineReason(String declineReason) {
+        this.declineReason = declineReason;
+    }
+
+
+    public String getRazorPayId() {
+        return razorPayId;
+    }
+
+    public void setRazorPayId(String razorPayId) {
+        this.razorPayId = razorPayId;
+    }
+
+
+    public ArrayList<FundingAgencyPSPostModel> getFundingAgencyPSPostModels() {
+        return fundingAgencyPSPostModels;
+    }
+
+    public void setFundingAgencyPSPostModels(ArrayList<FundingAgencyPSPostModel> fundingAgencyPSPostModels) {
+        this.fundingAgencyPSPostModels = fundingAgencyPSPostModels;
+    }
+
+    public ArrayList<FundingAgencyPSPostModel> fundingAgencyPSPostModels;
+
+    public String getDocumentReference() {
+        return documentReference;
+    }
+
+    public void setDocumentReference(String documentReference) {
+        this.documentReference = documentReference;
+    }
+
+    public String documentReference;
 
     public String getImageUri() {
         return imageUri;
@@ -117,4 +189,5 @@ public class FundingAgencyPostModel {
     public void setVerified(Boolean verified) {
         isVerified = verified;
     }
+
 }

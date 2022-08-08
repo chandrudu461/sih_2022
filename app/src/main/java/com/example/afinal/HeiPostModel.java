@@ -7,11 +7,43 @@ public class HeiPostModel {
     public String yearOfEstablishment;
     public String aicteCode;
     public String link;
+    public String imageUri;
     public String selectedstate;
     public String selectedDistrict;
     public String pdfUri;
+    public String documentReference;
+    public boolean isDeclined;
 
-    public void setImageUri(String toString) {
+    public String getDeclinedReason() {
+        return declinedReason;
+    }
+
+    public void setDeclinedReason(String declinedReason) {
+        this.declinedReason = declinedReason;
+    }
+
+    public String declinedReason;
+
+    public boolean isDeclined() {
+        return isDeclined;
+    }
+
+    public void setDeclined(boolean declined) {
+        isDeclined = declined;
+    }
+
+    public Boolean isVerified;
+
+
+    public String getDocumentReference() {
+        return documentReference;
+    }
+
+    public void setDocumentReference(String documentReference) {
+        this.documentReference = documentReference;
+    }
+
+    public void setImageUri(String imageUri) {
         this.imageUri = imageUri;
     }
 
@@ -19,9 +51,6 @@ public class HeiPostModel {
         return imageUri;
     }
 
-
-    public String imageUri;
-    Boolean isVerified;
     public String getPdfUri() {
         return pdfUri;
     }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuitem_managePayments"
+        android:icon="@drawable/manage_payments"
+        android:title="Manage Payments" />
+    <item
+        android:id="@+id/menuitem_verify_users"
+        android:icon="@drawable/verify_users"
+        android:title="Verify Users" />
+</menu>
+

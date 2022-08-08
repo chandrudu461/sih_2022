@@ -29,8 +29,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.jar.Attributes;
 
@@ -54,9 +57,6 @@ public class Hei extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
 
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_hei, container, false);
@@ -266,7 +266,7 @@ public class Hei extends Fragment {
 
                 Boolean isVerified = false;
                 HeiPostModel heiPostModel = new HeiPostModel(nameOfHei,YearOfEstablishment,aicteCode,link,StateSelected,DistrictSelected,isVerified);
-                heiPostModel.setImageUri(selectedImageUri.toString());
+
                 firebaseUtilities.uploadHeiPdf(selectedPDFUri,heiPostModel);
                 firebaseUtilities.uploadHeiImage(selectedImageUri,heiPostModel);
                 databaseReference.setValue(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -274,12 +274,13 @@ public class Hei extends Fragment {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getContext(), "Data is sent to database!!!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getContext(),WaitingUser.class));
                         } else {
                             Toast.makeText(getContext(), "Failed to send the data!!!", Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
 
+                });
 
             }
         });

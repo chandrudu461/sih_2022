@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuitem_upload_fund"
+        android:icon="@drawable/upload_problem"
+        android:title="Upload Problem statement" />
+    <item
+        android:id="@+id/menuitem_proposed_fund"
+        android:icon="@drawable/uploaded_problem"
+        android:title="Uploaded Problem Statements" />
+    <item
+        android:id="@+id/menuitem_ongoing_fund"
+        android:icon="@drawable/ongoing_problem"
+        android:title="Ongoing Statements" />
+    <item
+        android:id="@+id/menuitem_completed_fund"
+        android:icon="@drawable/completed_problem"
+        android:title="Awarded Statements" />
+    <item
+        android:id="@+id/menuitem_bank_fund"
+        android:icon="@drawable/bank_details"
+        android:title="Bank Details" />
+</menu>

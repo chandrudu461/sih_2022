@@ -2,10 +2,13 @@ package com.example.afinal;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -17,22 +20,23 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminHeiRelated extends AppCompatActivity {
+public class HeiAdminFragment extends Fragment {
+
     RecyclerView recyclerAdmin;
     RecyclerView.LayoutManager layoutManager;
     RecyclerAdapterHei recyclerAdapter;
     FirebaseAuth mAuth;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_hei_related);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_hei_admin, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference("Users").child("Hei");
 
-        recyclerAdmin = findViewById(R.id.recyclerViewHei_Allevents);
-        layoutManager = new LinearLayoutManager(this);
+        recyclerAdmin = view.findViewById(R.id.recyclerViewHei_Allevents);
+        layoutManager = new LinearLayoutManager(getContext());
 
         List<HeiPostModel> heiList = new ArrayList<>();
         myRef.addValueEventListener(new ValueEventListener() {
@@ -45,18 +49,19 @@ public class AdminHeiRelated extends AppCompatActivity {
                     heiList.add(agency);
                 }
 
-                recyclerAdapter = new RecyclerAdapterHei(getApplicationContext(),heiList);
+                recyclerAdapter = new RecyclerAdapterHei(getContext(),heiList);
                 recyclerAdmin.setAdapter(recyclerAdapter);
                 recyclerAdmin.setLayoutManager(layoutManager);
 
             }
-
-
 
             public void onCancelled( DatabaseError error) {
                 System.out.println("The thread Failed: " + error.getMessage());
             }
         });
 
+
+
+        return view;
     }
 }

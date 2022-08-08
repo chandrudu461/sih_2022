@@ -1,5 +1,6 @@
 package com.example.afinal;
 
+import android.app.NativeActivity;
 import android.app.ProgressDialog;
 import android.app.backup.FullBackupDataOutput;
 import android.content.Context;
@@ -71,6 +72,7 @@ public class FirebaseUtilities {
                 Toast.makeText(context, "Image Upload falied"+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     private void post(AdminPostModel adminPostModel) {
@@ -83,7 +85,6 @@ public class FirebaseUtilities {
             public void onComplete(@NonNull Task<Void> task) {
                 progressDialog.dismiss();
                 Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
-
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -100,12 +101,17 @@ public class FirebaseUtilities {
         sr.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                if(task.isSuccessful()){
-                    adminPostModel.setPdfDocUri(uri.toString());
-                    Toast.makeText(context, "Doc Declaration Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                if(task.isSuccessful()) {
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            adminPostModel.setPdfDocUri(uri.toString());
+                            Toast.makeText(context, "Doc Declaration Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
-                else {
-                    Toast.makeText(context, "Something went Wrong..!!! Pdf not uploaded!!", Toast.LENGTH_SHORT).show();
+                else{
+                    Toast.makeText(context, "Doc declaration proof not submitted!!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -117,8 +123,13 @@ public class FirebaseUtilities {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    adminPostModel.setPdfDeclarationDocUri(uri.toString());
-                    Toast.makeText(context, "Doc Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            adminPostModel.setPdfDeclarationDocUri(uri.toString());
+                            Toast.makeText(context, "Doc Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(context, "Something went Wrong..!!! Declaration Pdf not uploaded!!", Toast.LENGTH_SHORT).show();
@@ -133,15 +144,21 @@ public class FirebaseUtilities {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    adminPostModel.setPdfIdUri(uri.toString());
-                    Toast.makeText(context, "ID card Pdf Uploaded!!!", Toast.LENGTH_SHORT).show();
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if(task.isSuccessful()){
+                                adminPostModel.setPdfIdUri(uri.toString());
+                                Toast.makeText(context, "Url Uploaded succeesfully!!!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
                 else{
                     Toast.makeText(context, "Something went wrong ID card not uploaded!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     public void uploadFundingAgencyImage(Uri uri,FundingAgencyPostModel fundingAgencyPostModel) {
@@ -181,7 +198,7 @@ public class FirebaseUtilities {
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
 
-        StorageReference storageReference = firebaseStorage.getReference().child("Images/" + "Hei/" + firebaseUser.getUid() + "/" + "AdminProfile.jpg");
+        StorageReference storageReference = firebaseStorage.getReference().child("Images/" + "Hei/" + firebaseUser.getUid() + "/" + "HeiProfile.jpg");
         storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
@@ -190,8 +207,8 @@ public class FirebaseUtilities {
                         @Override
                         public void onSuccess(Uri uri) {
                             progressDialog.dismiss();
-                            Log.d("storageReference URL", "On Success" + uri.toString());
-                            Toast.makeText(context, "Image Uploaded succesfully!!", Toast.LENGTH_SHORT).show();
+                            Log.d("storageReference URL", "On Success" + uri);
+                            Toast.makeText(context, "Image Uploaded succesfully!! " + uri, Toast.LENGTH_SHORT).show();
                             heiPostModel.setImageUri(uri.toString());
                             postHeiDetails(heiPostModel);
                         }
@@ -211,14 +228,15 @@ public class FirebaseUtilities {
     private void postFundingAgencyDetails(FundingAgencyPostModel fundingAgencyPostModel) {
         progressDialog.show();
         DocumentReference documentReference= firebaseFirestore.collection("Funding Agency").document(firebaseUser.getUid());
-        fundingAgencyPostModel.setDeclarationPdfUri(documentReference.getId());
+        fundingAgencyPostModel.setDocumentReference(documentReference.getId());
 
         documentReference.set(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                progressDialog.dismiss();
-                Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
-
+                if(task.isSuccessful()){
+                    progressDialog.dismiss();
+                    Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -234,7 +252,7 @@ public class FirebaseUtilities {
         progressDialog.show();
 
         DocumentReference documentReference= firebaseFirestore.collection("Hei").document(firebaseUser.getUid());
-        heiPostModel.setPdfUri(documentReference.getId());
+        heiPostModel.setDocumentReference(documentReference.getId());
 
         documentReference.set(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -259,8 +277,13 @@ public class FirebaseUtilities {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    fundingAgencyPostModel.setDeclarationPdfUri(uri.toString());
-                    Toast.makeText(context, "Doc Declaration Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            fundingAgencyPostModel.setDeclarationPdfUri(uri.toString());
+                            Toast.makeText(context, "Doc Declaration Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(context, "Something went Wrong..!!! Pdf not uploaded!!", Toast.LENGTH_SHORT).show();
@@ -274,8 +297,13 @@ public class FirebaseUtilities {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
-                    heiPostModel.setPdfUri(uri.toString());
-                    Toast.makeText(context, "Doc Declaration Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                    sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri1) {
+                            heiPostModel.setPdfUri(uri1.toString());
+                            Toast.makeText(context, "Hei Proof uploaded successfully!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
                 else {
                     Toast.makeText(context, "Something went Wrong..!!! Pdf not uploaded!!", Toast.LENGTH_SHORT).show();

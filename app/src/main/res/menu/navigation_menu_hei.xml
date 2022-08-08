@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuitem_problem_feed"
+        android:icon="@drawable/problem_feed"
+        android:title="@string/problem_feed"/>
+    <item
+        android:id="@+id/menuitem_proposed_hei"
+        android:icon="@drawable/proposed_ideas"
+        android:title="@string/proposed_ideas" />
+    <item
+        android:id="@+id/menuitem_ongoing_hei"
+        android:icon="@drawable/ongoing_ideas"
+        android:title="@string/ongoing_ideas" />
+    <item
+        android:id="@+id/menuitem_completed_hei"
+        android:icon="@drawable/completed_ideas"
+        android:title="@string/completed_ideas" />
+    <item
+        android:id="@+id/menuitem_bank_hei"
+        android:icon="@drawable/bank_details"
+        android:title="Bank Details" />
+</menu>
+
