@@ -49,7 +49,7 @@ public class RecyclerAdapterHei extends RecyclerView.Adapter<RecyclerAdapterHei.
             public void onClick(View view) {
                 Intent in = new Intent(context,AdminYesOrNo.class);
                 in.putExtra("userType","Hei");
-                in.putExtra("UserToBeVerified", (Serializable) listdata.get(position));
+                in.putExtra("UserToBeVerified", listdata.get(position));
                 context.startActivity(in);
             }
         });

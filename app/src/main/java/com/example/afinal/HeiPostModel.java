@@ -2,7 +2,9 @@ package com.example.afinal;
 
 import android.net.Uri;
 
-public class HeiPostModel {
+import java.io.Serializable;
+
+public class HeiPostModel implements Serializable {
     public String nameOfHei;
     public String yearOfEstablishment;
     public String aicteCode;
@@ -11,8 +13,46 @@ public class HeiPostModel {
     public String selectedstate;
     public String selectedDistrict;
     public String pdfUri;
+    public String verify;
+    public String declineReason;
+
+    public String uid;
+    public String razorPayId;
+
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
+    }
+
     public String documentReference;
-    public boolean isDeclined;
+
+    public String getDeclineReason() {
+        return declineReason;
+    }
+
+    public void setDeclineReason(String declineReason) {
+        this.declineReason = declineReason;
+    }
+
+    public String getRazorPayId() {
+        return razorPayId;
+    }
+
+    public void setRazorPayId(String razorPayId) {
+        this.razorPayId = razorPayId;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getDeclinedReason() {
         return declinedReason;
@@ -24,15 +64,6 @@ public class HeiPostModel {
 
     public String declinedReason;
 
-    public boolean isDeclined() {
-        return isDeclined;
-    }
-
-    public void setDeclined(boolean declined) {
-        isDeclined = declined;
-    }
-
-    public Boolean isVerified;
 
 
     public String getDocumentReference() {
@@ -61,14 +92,15 @@ public class HeiPostModel {
 
 
     public HeiPostModel(){}
-    public HeiPostModel(String nameOfHei,String yearOfEstablishment,String aicteCode,String link,String selectedstate,String selectedDistrict,Boolean isVerified){
+    public HeiPostModel(String nameOfHei,String yearOfEstablishment,String aicteCode,String link,String selectedstate,String selectedDistrict,String verify,String uid){
         this.nameOfHei = nameOfHei;
         this.yearOfEstablishment = yearOfEstablishment;
         this.aicteCode = aicteCode;
         this.link = link;
         this.selectedstate = selectedstate;
         this.selectedDistrict = selectedDistrict;
-        this.isVerified = isVerified;
+        this.verify = verify;
+        this.uid = uid;
     }
 
     public String getNameOfHei() {
@@ -119,11 +151,4 @@ public class HeiPostModel {
         this.selectedDistrict = selectedDistrict;
     }
 
-    public Boolean getVerified() {
-        return isVerified;
-    }
-
-    public void setVerified(Boolean verified) {
-        isVerified = verified;
-    }
 }

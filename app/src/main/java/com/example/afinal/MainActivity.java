@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register.setOnClickListener(this);
         signin.setOnClickListener(this);
 
+        if (mAuth.getCurrentUser()!=null){
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+        }
+
 
     }
     @Override

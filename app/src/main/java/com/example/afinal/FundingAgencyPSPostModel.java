@@ -2,8 +2,11 @@ package com.example.afinal;
 
 import android.util.Log;
 
-public class FundingAgencyPSPostModel {
+import java.io.Serializable;
+
+public class FundingAgencyPSPostModel implements Serializable {
     public String problemStatement;
+    public String nameOfFundingAgency;
     public String description;
     public String budget;
     public String duration;
@@ -12,16 +15,17 @@ public class FundingAgencyPSPostModel {
     public String deliverables;
 
     public FundingAgencyPSPostModel() {
-        problemStatement=new String("test project");
-        description=new String("des test");
-        budget=new String("7634");
-        duration=new String("5 months");
-        eligibility =new String("eligi test");
-        deliverables=new String("deliv test ");
+//        problemStatement=new String("test project");
+//        description=new String("des test");
+//        budget=new String("7634");
+//        duration=new String("5 months");
+//        eligibility =new String("eligi test");
+//        deliverables=new String("deliv test ");
 
     }
 
-    public FundingAgencyPSPostModel(String problemStatement,
+    public FundingAgencyPSPostModel(String nameOfFundingAgency,
+                                    String problemStatement,
                                     String description,
                                     String budget,
                                     String duration,
@@ -94,6 +98,14 @@ public class FundingAgencyPSPostModel {
         this.deliverables = deliverables;
     }
 
+
+    public String getNameOfFundingAgency() {
+        return nameOfFundingAgency;
+    }
+
+    public void setNameOfFundingAgency(String nameOfFundingAgency) {
+        this.nameOfFundingAgency = nameOfFundingAgency;
+    }
 
 
 

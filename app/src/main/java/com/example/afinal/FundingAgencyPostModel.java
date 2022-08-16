@@ -7,17 +7,16 @@ import java.util.ArrayList;
 
 public class FundingAgencyPostModel implements Serializable {
     public String agencyType,nameOfFundingAgency,yearOfEstablishment,nameOfFunder,phoneNumber,portFolioLink,socialLinks,declarationPdfUri,state,district;
-    public Boolean isVerified;
     public String razorPayId;
     public String declineReason;
-    public Boolean isDeclined;
+    public String verify;
 
-    public Boolean getDeclined() {
-        return isDeclined;
+    public String getVerify() {
+        return verify;
     }
 
-    public void setDeclined(Boolean declined) {
-        isDeclined = declined;
+    public void setVerify(String verify) {
+        this.verify = verify;
     }
 
     public String getUid() {
@@ -29,14 +28,6 @@ public class FundingAgencyPostModel implements Serializable {
     }
 
     public String uid;
-
-    public Boolean getIsDeclined() {
-        return isDeclined;
-    }
-
-    public void setIsDeclined(Boolean isDeclined) {
-        this.isDeclined = isDeclined;
-    }
 
     public String getDeclineReason() {
         return declineReason;
@@ -87,7 +78,7 @@ public class FundingAgencyPostModel implements Serializable {
     public String imageUri;
 
     public FundingAgencyPostModel(){}
-    public FundingAgencyPostModel(String agencyType,String nameOfFundingAgency,String yearOfEstablishment,String nameOfFunder,String phoneNumber,String portFolioLink,String socialLinks,String state,String district,Boolean isVerified)
+    public FundingAgencyPostModel(String agencyType,String nameOfFundingAgency,String yearOfEstablishment,String nameOfFunder,String phoneNumber,String portFolioLink,String socialLinks,String state,String district,String verify)
     {
         this.agencyType = agencyType;
         this.nameOfFundingAgency = nameOfFundingAgency;
@@ -99,7 +90,7 @@ public class FundingAgencyPostModel implements Serializable {
         this.declarationPdfUri = declarationPdfUri;
         this.state = state;
         this.district = district;
-        this.isVerified = isVerified;
+        this.verify = verify;
     }
 
     public String getAgencyType() {
@@ -182,12 +173,5 @@ public class FundingAgencyPostModel implements Serializable {
         this.district = district;
     }
 
-    public Boolean getVerified() {
-        return isVerified;
-    }
-
-    public void setVerified(Boolean verified) {
-        isVerified = verified;
-    }
 
 }

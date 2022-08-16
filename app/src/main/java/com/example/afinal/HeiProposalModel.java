@@ -2,54 +2,14 @@ package com.example.afinal;
 
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
+
 public class HeiProposalModel {
 
     public String problemStatement,description,expectedDuration;
-    public String expectedBudgetUri;
-//    public Milestone milestone;
-//    public String budgetDivision;
-//    public String amountCategory;
+    public String expectedBudget;
     public String proposalDocumentUri;
-    public ArrayAdapter<Milestone> milestones;
-
-    public HeiProposalModel(){
-
-    }
-
-    public ArrayAdapter<Milestone> getMilestones() {
-        return milestones;
-    }
-
-    public void setMilestones(ArrayAdapter<Milestone> milestones) {
-        this.milestones = milestones;
-    }
-    //
-//    public Milestone getMilestone() {
-//        return milestone;
-//    }
-//
-//    public void setMilestone(Milestone milestone) {
-//        this.milestone = milestone;
-//    }
-
-    public HeiProposalModel(String problemStatement, String description, String expectedDuration,
-                            String expectedBudget, Milestone milestone, String budgetDivision,
-                            String amountCategory, String proposalDocument){
-
-        this.problemStatement = problemStatement;
-        this.description = description;
-        this.expectedDuration = expectedDuration;
-        this.expectedBudgetUri = expectedBudget;
-        this.milestones = milestones;
-//        this.budgetDivision = budgetDivision;
-//        this.amountCategory = amountCategory;
-        this.proposalDocumentUri = proposalDocument;
-
-
-    }
-
-
-
+    public ArrayList<MilestonePostModel> milestones;
 
     public String getProblemStatement() {
         return problemStatement;
@@ -75,25 +35,13 @@ public class HeiProposalModel {
         this.expectedDuration = expectedDuration;
     }
 
-    public String getExpectedBudgetUri() {
-        return expectedBudgetUri;
+    public String getExpectedBudget() {
+        return expectedBudget;
     }
 
-    public void setExpectedBudgetUri(String expectedBudgetUri) {
-        this.expectedBudgetUri = expectedBudgetUri;
+    public void setExpectedBudget(String expectedBudget) {
+        this.expectedBudget = expectedBudget;
     }
-
-
-
-
-//    public String getBudgetDivision() {
-//        return budgetDivision;
-//    }
-//
-//    public void setBudgetDivision(String budgetDivision) {
-//        this.budgetDivision = budgetDivision;
-//    }
-
 
     public String getProposalDocumentUri() {
         return proposalDocumentUri;
@@ -102,4 +50,18 @@ public class HeiProposalModel {
     public void setProposalDocumentUri(String proposalDocumentUri) {
         this.proposalDocumentUri = proposalDocumentUri;
     }
+
+    public ArrayList<MilestonePostModel> getMilestones() {
+        return milestones;
+    }
+
+    public void setMilestones(ArrayList<MilestonePostModel> milestones) {
+        this.milestones = milestones;
+    }
+
+
+    public HeiProposalModel(){}
+
+
+
 }

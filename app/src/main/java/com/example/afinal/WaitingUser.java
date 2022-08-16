@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class WaitingUser extends AppCompatActivity {
 
+    String reason;
     TextView waitingMeassage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +27,104 @@ public class WaitingUser extends AppCompatActivity {
 
         waitingMeassage = findViewById(R.id.waitingMessage);
 
-        DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("isVerified");
-        dr.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                HeiPostModel h = (HeiPostModel) snapshot.getValue();
-                Boolean h = (Boolean) snapshot.getValue();
-                if (h == false){
-                    waitingMeassage.setText("Your Profile is under evaluation!!!");
 
-                    // Dispaly lotttie file
-                }
+        waitingMeassage.setText("Your Profile is under evaluation!!!");
 
-                if(h == true){
-                    startActivity(new Intent(WaitingUser.this, DashBoardActivity.class));
-                }
-//                else if(h == true) {
-//                    waitingMeassage.setText(h.declinedReason);
+//
+//        final boolean[] flag = {true};
+//        while(flag[0])
+//        {
+//            DatabaseReference r = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("declineReason");
+//            r.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    reason = (String) snapshot.getValue();
 //                }
-            }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//
+//            DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("verify");
+//            dr.addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                HeiPostModel h = (HeiPostModel) snapshot.getValue();
+//                    String h = (String) snapshot.getValue();
+//                    if (h.equals("pending")) {
+//                        waitingMeassage.setText("Your Profile is under evaluation!!!");
+//
+//                        // Dispaly lotttie file
+//                    }
+//
+//                    if (h.equals("accept")) {
+//                        flag[0] = false;
+//                    } else if (h.equals("decline")) {
+//                        waitingMeassage.setText(reason);
+//                    }
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//
+//            if(flag[0] == false){
+//                break;
+//            }
+//        }
+//        if (flag[0] == false) {
+//
+//            startActivity(new Intent(WaitingUser.this, DashBoardActivity.class));
+//        }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+        waitingMeassage = findViewById(R.id.waitingMessage);
 
+
+            DatabaseReference r = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("declineReason");
+            r.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    reason = (String) snapshot.getValue();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            DatabaseReference dr = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("verify");
+            dr.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                HeiPostModel h = (HeiPostModel) snapshot.getValue();
+                    String h = (String) snapshot.getValue();
+                    if (h.equals("pending")) {
+                        waitingMeassage.setText("Your Profile is under evaluation!!!");
+
+                        // Dispaly lotttie file
+                    }
+
+                    if (h.equals("accepted")) {
+                        startActivity(new Intent(WaitingUser.this, DashBoardActivity.class));
+                    } else if (h.equals("declined")) {
+                        waitingMeassage.setText(reason);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
     }
 }

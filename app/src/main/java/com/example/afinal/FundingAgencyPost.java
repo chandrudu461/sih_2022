@@ -1,5 +1,6 @@
 package com.example.afinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,11 +27,21 @@ public class FundingAgencyPost extends Fragment {
     private EditText deadlineText,eligibilityText,deliverablesText;
     private Button post;
 
-    FirebaseAuth mAuth;
+    FundingAgencyPostModel fundingAgencyPostModel;
+
     DocumentReference documentReference;
     FirebaseFirestore firebaseFirestore;
 
     private FundingAgencyPSPostModel fundingAgencyPSPostModel;
+
+    public static FundingAgencyPost newInstance(FundingAgencyPostModel fundingAgencyPostModel) {
+        FundingAgencyPost fragment = new FundingAgencyPost();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user", fundingAgencyPostModel);
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,9 +49,16 @@ public class FundingAgencyPost extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_funding_agency_post, container, false);
 
+        fundingAgencyPostModel = (FundingAgencyPostModel) getArguments().getSerializable("user");
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        documentReference = firebaseFirestore.collection("FundingAgencyPost").document("jsdkjlskjfl");
+        fundingAgencyPostModel = (FundingAgencyPostModel) getArguments().getSerializable("user");
+
+
+        String fId = fundingAgencyPostModel.getUid();
+
+
+        documentReference = firebaseFirestore.collection("FundingAgencyPost").document(fId);
 
         problemStatementText = view.findViewById(R.id.problemStatement);
         descriptionText = view.findViewById(R.id.description);
@@ -52,32 +70,22 @@ public class FundingAgencyPost extends Fragment {
 
         post = view.findViewById(R.id.post);
 
-
-        String problemStatement = problemStatementText.getText().toString();
-        String description = descriptionText.getText().toString();
-        String budget = budgetText.getText().toString();
-        String duration = durationText.getText().toString();
-        String deadline = deadlineText.getText().toString();
-        String eligibility = eligibilityText.getText().toString();
-        String deliverables = deliverablesText.getText().toString();
-
-
-
-
-        //fundingAgencyPSPostModel= new FundingAgencyPSPostModel();
-        /*
-        fundingAgencyPSPostModel.setProblemStatement(problemStatement);
-        fundingAgencyPSPostModel.setDescription(description);
-        fundingAgencyPSPostModel.setBudget(budget);
-        fundingAgencyPSPostModel.setDuration(duration);
-        */
-
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                String name = fundingAgencyPostModel.nameOfFundingAgency;
+                String problemStatement = problemStatementText.getText().toString();
+                String description = descriptionText.getText().toString();
+                String budget = budgetText.getText().toString();
+                String duration = durationText.getText().toString();
+                String deadline = deadlineText.getText().toString();
+                String eligibility = eligibilityText.getText().toString();
+                String deliverables = deliverablesText.getText().toString();
+
 //                fundingAgencyPSPostModel = new FundingAgencyPSPostModel(problemStatement,description,budget,duration,deadline,eligibility,deliverables);
                     fundingAgencyPSPostModel = new FundingAgencyPSPostModel();
+                    fundingAgencyPSPostModel.setNameOfFundingAgency(name);
                     fundingAgencyPSPostModel.setProblemStatement(problemStatement);
                     fundingAgencyPSPostModel.setDescription(description);
                     fundingAgencyPSPostModel.setBudget(budget);
@@ -86,7 +94,6 @@ public class FundingAgencyPost extends Fragment {
                     fundingAgencyPSPostModel.setEligibility(eligibility);
                     fundingAgencyPSPostModel.setDeliverables(deliverables);
 
-                Toast.makeText(getContext(), fundingAgencyPSPostModel.problemStatement+"adf"+fundingAgencyPSPostModel.description, Toast.LENGTH_SHORT).show();
 
                 documentReference.set(fundingAgencyPSPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

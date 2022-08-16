@@ -262,10 +262,11 @@ public class Hei extends Fragment {
                 String aicteCode = aicteCodeText.getText().toString().trim();
                 String link = linkText.getText().toString().trim();
                 String StateSelected = selectedState;
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 String DistrictSelected = selectedDistrict;
 
-                Boolean isVerified = false;
-                HeiPostModel heiPostModel = new HeiPostModel(nameOfHei,YearOfEstablishment,aicteCode,link,StateSelected,DistrictSelected,isVerified);
+                String verify = "pending";
+                HeiPostModel heiPostModel = new HeiPostModel(nameOfHei,YearOfEstablishment,aicteCode,link,StateSelected,DistrictSelected,verify,uid);
 
                 firebaseUtilities.uploadHeiPdf(selectedPDFUri,heiPostModel);
                 firebaseUtilities.uploadHeiImage(selectedImageUri,heiPostModel);
@@ -275,6 +276,7 @@ public class Hei extends Fragment {
                         if (task.isSuccessful()) {
                             Toast.makeText(getContext(), "Data is sent to database!!!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getContext(),WaitingUser.class));
+//                            startActivity(new Intent(getContext(),DashBoardActivity.class));
                         } else {
                             Toast.makeText(getContext(), "Failed to send the data!!!", Toast.LENGTH_SHORT).show();
                         }

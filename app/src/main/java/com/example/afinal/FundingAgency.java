@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.data.DataHolder;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +50,7 @@ public class FundingAgency extends Fragment {
     public Uri selectedPDFDeclarationUri,selectedImageUri;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FundingAgencyPostModel fundingAgencyPostModel;
 
     //assigning variables
     ImageView profilepic;
@@ -335,9 +337,9 @@ public class FundingAgency extends Fragment {
                 String uid = FirebaseAuth.getInstance().getUid();
                 String state = selectedState;
                 String district = selectedDistrict;
-                Boolean isVerified = false;
+                String verify = "pending";
 
-                FundingAgencyPostModel fundingAgencyPostModel = new FundingAgencyPostModel(typeOfAgency,nameOfFundingAgency,yearOfEstablishment,nameOfFunder,phoneNumber,portFolioLink,socialLinks,state,district,isVerified);
+                fundingAgencyPostModel = new FundingAgencyPostModel(typeOfAgency,nameOfFundingAgency,yearOfEstablishment,nameOfFunder,phoneNumber,portFolioLink,socialLinks,state,district,verify);
 //                fundingAgencyPostModel.setDeclarationPdfUri(fundingAgencyPostModel.declarationPdfUri);
 //                fundingAgencyPostModel.setImageUri(fundingAgencyPostModel.imageUri);
                 fundingAgencyPostModel.setUid(uid);
@@ -354,8 +356,13 @@ public class FundingAgency extends Fragment {
                         }
                     }
                 });
-                
-                startActivity(new Intent(getContext(),DashBoardActivity.class));
+//                Intent in = new Intent(getContext(),WaitingUser.class);
+                Intent in = new Intent(getContext(), DashBoardActivity.class);
+                in.putExtra("user",fundingAgencyPostModel);
+                startActivity(in);
+
+//                startActivity(new Intent(getContext(),DashBoardActivity.class));
+
             }
         });
         return view;

@@ -7,12 +7,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
@@ -25,6 +30,7 @@ public class DashBoardActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     FrameLayout frameLayout;
+    FundingAgencyPostModel fundingAgencyPostModel;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -33,56 +39,172 @@ public class DashBoardActivity extends AppCompatActivity {
 
         this.sharedPreferences = getSharedPreferences(String.valueOf((R.string.shared_preferences_user_details)), Context.MODE_PRIVATE);
 
-
         setContentView(R.layout.activity_dashboard);
-        toolbar=findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
-        navigationView=findViewById(R.id.navigation_layout);
-        drawerLayout=findViewById(R.id.drawer_layout);
-        frameLayout=findViewById(R.id.frame_layout_dashboard);
+        navigationView = findViewById(R.id.navigation_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        frameLayout = findViewById(R.id.frame_layout_dashboard);
 
-        onCreateOptionsMenu(navigationView.getMenu());
+
+        fundingAgencyPostModel = (FundingAgencyPostModel) getIntent().getSerializableExtra("user");
+
+
+//        onCreateOptionsMenu(navigationView.getMenu());
 
         setUpToolbar();
-        actionBarDrawerToggle= new ActionBarDrawerToggle(this, drawerLayout,R.string.open_drawer,R.string.close_drawer);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_drawer, R.string.close_drawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+        onCreateOptionsMenu(navigationView);
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
         // fragmentHeading.setText("All Events")
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menuitem_verify_users:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AdminRetrieval()).commit();
+                        return true;
+                    case R.id.menuitem_managePayments:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
+                        return true;
+                    case R.id.menuitem_proposed_fund:
+                        Fragment fragment = FundingAgencyPost.newInstance(fundingAgencyPostModel);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, fragment).commit();
+                        return true;
+//                    case R.id.menuitem_problem_feed:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new ViewPSHei()).commit();
+                    default:
+                        drawerLayout.openDrawer(GravityCompat.START);
+                        return true;
+
+                }
+            }
+        });
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+
+
+//    navigationView.setNavigationItemSelectedListener {
+//        when(it.itemId){
+//            R.id.menuitem_allevents -> {
+//
+//                supportFragmentManager.beginTransaction().replace(R.id.frame_layout,AllEvents_fragment()).commit()
+//
+//                //navigationView.menu.findItem(R.id.menuitem_allevents)
+//                drawerLayout.closeDrawers()
+//                fragmentHeading.setText("All Events")
+//            }
+//            R.id.menuitem_registered_events -> {
+//                supportFragmentManager.beginTransaction().replace(R.id.frame_layout,RegisteredEvents_Fragment()).commit()
+//
+//                drawerLayout.closeDrawers()
+//                fragmentHeading.setText("Registered Events")
+//            }
+//            R.id.menuitem_attended_events ->{
+//                supportFragmentManager.beginTransaction().replace(R.id.frame_layout,AttendedEvents_fragment()).commit()
+//                drawerLayout.closeDrawers()
+//                fragmentHeading.setText("Attended Events")
+//            }
+//            R.id.UploadEvent -> {
+//                val intent = Intent(this, upload_an_event::class.java)
+//                startActivity(intent)
+//            }
+//            R.id.sign_out->{
+//                Firebase.auth.signOut()
+//                //val intent=Intent(this,googleAuth::class.java)
+//                //startActivity(intent)
+//                finish()
+//            }
+//        }
+//        return@setNavigationItemSelectedListener true
+//    }
+//
+//}
+
+    //toolbar hamburger listener
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if(item.itemId==android.R.id.home){
+//        drawerLayout.openDrawer(GravityCompat.START)
+////
+//        //name and rollno in navigation drawer
+//
+//        if(intent!=null){
+//
+//
+//        textView_rollno= findViewById(R.id.textview_rollno)
+//        textView_username= drawerLayout.findViewById(R.id.textview_name)
+//
+//        textView_rollno.setText("Gmail - ${sharedPreferences.getString("email",null)}")
+//        textView_username.setText("Name - ${sharedPreferences.getString("name",null)}")
+//
+//
+//        }
+//
+//
+//        }
+//
+//        return super.onOptionsItemSelected(item)
+//        }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (navigationView != null) {
+            navigationView.getMenu().clear(); //clear old inflated items.
+            navigationView.inflateMenu(R.menu.navigation_menu_default);
+
+            // we need redirect the respective menu according to the user
+            String user = sharedPreferences.getString("userType", "HEI");
+            if (user == "Admin") {
+//            inflater.inflate(R.menu.navigation_menu_admin,menu);
+                navigationView.inflateMenu(R.menu.navigation_menu_admin);
+            }
+            if (user == "HEI") {
+//            inflater.inflate(R.menu.navigation_menu_hei, menu);
+                navigationView.inflateMenu(R.menu.navigation_menu_hei);
+            }
+            if (user == "FundingAgency") {
+//            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
+                navigationView.inflateMenu(R.menu.navigation_menu_funding_agency);
+            }
+            Toast.makeText(this, user, Toast.LENGTH_SHORT).show();
+        }
+    }
+    public boolean onCreateOptionsMenu(NavigationView navigationView) {
+//        MenuInflater inflater = getMenuInflater();
+
+        navigationView.getMenu().clear(); //clear old inflated items.
+        navigationView.inflateMenu(R.menu.navigation_menu_default);
+
         // we need redirect the respective menu according to the user
-        String user=sharedPreferences.getString("userType","user");
-        if(sharedPreferences.getString("userType","user") == "Admin"){
-            inflater.inflate(R.menu.navigation_menu_admin,menu);
-            Toast.makeText(this, "admin"+user, Toast.LENGTH_SHORT).show();
+        String user=sharedPreferences.getString("userType","HEI");
+        if(user == "Admin"){
+//            inflater.inflate(R.menu.navigation_menu_admin,menu);
+            navigationView.inflateMenu(R.menu.navigation_menu_admin);
         }
-        if(sharedPreferences.getString("userType","user") == "HEI"){
-            inflater.inflate(R.menu.navigation_menu_hei, menu);
+        if(user == "HEI"){
+//            inflater.inflate(R.menu.navigation_menu_hei, menu);
+            navigationView.inflateMenu(R.menu.navigation_menu_hei);
         }
-        if(sharedPreferences.getString("userType","user") == "FundingAgency"){
-            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
+        if(user == "FundingAgency"){
+//            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
+            navigationView.inflateMenu(R.menu.navigation_menu_funding_agency);
         }
-        Toast.makeText(this, "NNot admin"+user, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, user, Toast.LENGTH_SHORT).show();
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:   drawerLayout.openDrawer(GravityCompat.START);
+        if (item.getItemId() == android.R.id.home){
+            drawerLayout.openDrawer(GravityCompat.START);
                                       return true;
-            case R.id.menuitem_verify_users: getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AdminRetrieval()).commit();
-                                        return true;
-            case R.id.menuitem_managePayments: getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
-                                         return true;
-            case R.id.menuitem_proposed_fund:getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new FundingAgencyPost()).commit();
-
-            default:  drawerLayout.openDrawer(GravityCompat.START);
 
         }
 //        if(item.getItemId()==android.R.id.home){
@@ -105,6 +227,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     //toolbar to actionbar

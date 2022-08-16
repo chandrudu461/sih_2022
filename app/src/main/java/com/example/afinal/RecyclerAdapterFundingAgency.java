@@ -1,6 +1,7 @@
 package  com.example.afinal;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import com.example.afinal.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -24,6 +27,7 @@ import java.util.List;
 public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerAdapterFundingAgency.ViewHolder>{
     private List<FundingAgencyPostModel> listdata;
     public Context context;
+
     // RecyclerView recyclerView;
     public RecyclerAdapterFundingAgency(Context context,List<FundingAgencyPostModel> listdata) {
         this.listdata = listdata;
@@ -69,10 +73,14 @@ public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerA
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(context,AdminYesOrNo.class);
-                in.putExtra("UserType","FundingAgency");
+                in.putExtra("userType","FundingAgency");
                 in.putExtra("UserToBeVerified", listdata.get(position));
+
                 context.startActivity(in);
+//                LocalBroadcastManager.getInstance(context).sendBroadcast(in);
+//                context.startActivity(in);
             }
+
         });
     }
 

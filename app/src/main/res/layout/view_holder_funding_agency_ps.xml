@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="300dp"
@@ -41,34 +40,45 @@
         android:hint="Name of Funding Agency"
         android:padding="5dp"
         android:textSize="18sp" />
+
     <TextView
+        android:id="@+id/holder_item_ps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/holder_item_name"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_founder"
-        android:hint="founder of agency"
-        android:layout_margin="3dp"
-        android:padding="5dp"/>
+        android:hint="problem Statement"
+        android:padding="5dp" />
+
     <TextView
+        android:id="@+id/holder_item_deadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/holder_item_founder"
+        android:layout_below="@id/holder_item_ps"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_phn_no"
-        android:hint="phone Number"
-        android:layout_margin="3dp"
-        android:padding="5dp"/>
+        android:hint="Days left"
+        android:padding="5dp" />
+
     <TextView
+        android:id="@+id/holder_item_budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/holder_item_phn_no"
+        android:layout_below="@id/holder_item_deadline"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_state"
-        android:hint="State"
-        android:layout_margin="3dp"
-        android:padding="5dp"
-        />
+        android:hint="Budget"
+        android:padding="5dp" />
     <!--        android:backgroundTint="#808080"-->
     <LinearLayout
         android:id="@+id/linearlayout_holder"
@@ -76,19 +86,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="150dp"
+        android:background="#993F51B5"
         android:gravity="fill_horizontal"
-        android:padding="5dp"
-        android:background="#993F51B5">
+        android:padding="5dp">
 
         <Button
-            android:id="@+id/btn_user_verify"
+            android:id="@+id/btn_open_ps"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="200dp"
             android:layout_marginBottom="5dp"
-            android:text="Verify User"
-            android:textColor="#ffffff"/>
+            android:text="Open ps"
+            android:textColor="#ffffff" />
     </LinearLayout>
 
 
