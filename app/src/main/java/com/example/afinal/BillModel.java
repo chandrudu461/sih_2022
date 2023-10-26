@@ -1,6 +1,8 @@
 package com.example.afinal;
 
-public class BillModel {
+import java.io.Serializable;
+
+public class BillModel implements Serializable {
 
     public String nameOfPerson;
 

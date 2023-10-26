@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signin.setOnClickListener(this);
 
         if (mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+//            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            startActivity(new Intent(MainActivity.this, DashBoardActivity.class));
         }
 
 

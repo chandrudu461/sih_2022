@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
+            android:background="#f55a48"
             android:minHeight="?actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
@@ -26,25 +26,26 @@
 <!--                android:layout_marginLeft="260dp"-->
 <!--                android:background="@drawable/ic_baseline_location_on_24" />-->
         </androidx.appcompat.widget.Toolbar>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_marginTop="?actionBarSize"
-            android:background="@color/purple_500" >
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="130dp"-->
+<!--            android:layout_marginTop="?actionBarSize"-->
+<!--            android:background="@color/purple_500" >-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/fragmentheading_txt_view"
-                android:background="@color/white"
-                android:textAlignment="center"
-                android:textSize="22sp"/>
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:id="@+id/fragmentheading_txt_view"-->
+<!--                android:background="@color/white"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="22sp"/>-->
+<!--        </RelativeLayout>-->
         <FrameLayout
             android:id="@+id/frame_layout_dashboard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="188dp">
+            android:layout_marginTop="58dp"
+            android:background="#f9f5f0">
         </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -55,7 +56,8 @@
         android:layout_height="fill_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header_layout"
-        app:menu="@menu/navigation_menu_default" />
+        app:menu="@menu/navigation_menu_default"
+      />
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

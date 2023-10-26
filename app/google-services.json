@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "999227593337",
-    "project_id": "final-2923f",
-    "storage_bucket": "final-2923f.appspot.com"
+    "project_number": "828914763676",
+    "project_id": "extremefinal-444d9",
+    "storage_bucket": "extremefinal-444d9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:999227593337:android:6d9cdb94b7fd517f073aa8",
+        "mobilesdk_app_id": "1:828914763676:android:be439ac34e2b43a0c16a59",
         "android_client_info": {
           "package_name": "com.example.afinal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "999227593337-80pk2u2qhm1pjs3449kto4c313lj3mk3.apps.googleusercontent.com",
+          "client_id": "828914763676-9kffsc81jq6o6lb5m250e4030emr8jnp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDxpVXjK8BR_PYY2i0KrtX_YdP5OEiU368"
+          "current_key": "AIzaSyA77x0Jky7h5c7NNs5MYxPO7_WHPewojbM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "999227593337-80pk2u2qhm1pjs3449kto4c313lj3mk3.apps.googleusercontent.com",
+              "client_id": "828914763676-9kffsc81jq6o6lb5m250e4030emr8jnp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

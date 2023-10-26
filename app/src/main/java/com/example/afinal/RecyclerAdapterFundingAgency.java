@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,10 +51,8 @@ public class RecyclerAdapterFundingAgency extends RecyclerView.Adapter<RecyclerA
         holder.textview_phnNo.setText( "Phone -" + myListData.phoneNumber);
         holder.textView_State.setText( myListData.state);
         holder.textview_view_type.setText(text);
-//        Picasso.with(context).load("https://firebasestorage.googleapis.com/v0/b/final-2923f.appspot.com/o/Images%2FFunding%20Agency%2FYXVyo1qxsVMZPMboNACl6kX98FH3%2FAdminProfile.jpg?alt=media&token=913ac272-4163-4223-8e52-f4901e509d9b")
-//                .resize(100,100).centerCrop().into(holder.imageview);
 
-        Picasso.with(context).load(myListData.imageUri).into(holder.imageview);
+        Picasso.with(context).load(Uri.parse(myListData.imageUri)).into(holder.imageview);
 
 //        Picasso.with(context.getApplicationContext()).load(myListData.imageUri).networkPolicy(NetworkPolicy.OFFLINE)
 //                .placeholder(R.drawable.ic_baseline_picture_as_pdf_24).into(holder.imageview, new Callback() {

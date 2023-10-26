@@ -3,7 +3,9 @@ package com.example.afinal;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -20,6 +22,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -35,10 +39,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.jar.Attributes;
 
 public class Hei extends Fragment {
+    int score=0;
 
+    EditText rank;
     private static final int PICK_IMAGE = 12;
     private static final CharSequence PICK_PDF = "PDF";
     private static final int PERMISSION_IMAGE = 15;
@@ -47,13 +55,16 @@ public class Hei extends Fragment {
     private Spinner stateSpinner,districtSpinner;
     private ArrayAdapter<CharSequence> stateAdapter;
     private String selectedState,selectedDistrict;
+    private List<String> selectedSpinnerItem;
     private ArrayAdapter<CharSequence> districtAdapter;
     private Uri selectedImageUri,selectedPDFUri;
+    Boolean flag=false;
     private TextView pdfSelect,printPdf;
     private Button submit;
+    private Spinner spinner;
     private FirebaseUtilities firebaseUtilities;
     private DatabaseReference databaseReference;
-
+    CheckBox checkBoxYes1,checkBoxNo1,checkBoxYes2,checkBoxNo2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,12 +77,54 @@ public class Hei extends Fragment {
         aicteCodeText = view.findViewById(R.id.code);
         linkText = view.findViewById(R.id.link);
         pdfSelect = view.findViewById(R.id.pdfSelect);
-        printPdf = view.findViewById(R.id.textView3);
+//        printPdf = view.findViewById(R.id.textView3);
         firebaseUtilities = new FirebaseUtilities(getContext());
         submit = view.findViewById(R.id.button);
         profilePic = view.findViewById(R.id.imageView);
+        checkBoxYes1=view.findViewById(R.id.androidCheckBoxnaac1);
+        checkBoxNo1=view.findViewById(R.id.javaCheckBoxnaac2);
+        checkBoxYes2=view.findViewById(R.id.androidCheckBoxnba1);
+        checkBoxNo2=view.findViewById(R.id.javaCheckBoxnba2);
+
+        rank=view.findViewById(R.id.nirfrank);
+
+        selectedSpinnerItem = new ArrayList<>();
+        SharedPreferences sharedPreferences= getContext().getSharedPreferences(String.valueOf((R.string.shared_preferences_user_details)), Context.MODE_PRIVATE);
+
+//        spinner = view.findViewById(R.id.spinner_aicte_hei);
+
+//        ArrayAdapter<CharSequence> ad  = ArrayAdapter.createFromResource(getContext(),R.array.aicte_ids, android.R.layout.simple_spinner_item);
+//        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(ad);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child("Hei").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        sharedPreferences.edit().putString("HEI_uid",FirebaseAuth.getInstance().getCurrentUser().getUid()).commit();
+        databaseReference.child("verify").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.equals("accepted")){
+                    startActivity(new Intent(getContext(),DashBoardActivity.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                aicteCodeText.setVisibility(View.INVISIBLE);
+//                flag = true;
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+
 
 
         stateSpinner = view.findViewById(R.id.spinner_indian_states);    //Finds a view that was identified by the android:id attribute in xml
@@ -270,20 +323,68 @@ public class Hei extends Fragment {
 
                 firebaseUtilities.uploadHeiPdf(selectedPDFUri,heiPostModel);
                 firebaseUtilities.uploadHeiImage(selectedImageUri,heiPostModel);
-                databaseReference.setValue(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getContext(), "Data is sent to database!!!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getContext(),WaitingUser.class));
-//                            startActivity(new Intent(getContext(),DashBoardActivity.class));
-                        } else {
-                            Toast.makeText(getContext(), "Failed to send the data!!!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
+                checkBoxYes1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        score++;
+                    }
                 });
 
+                checkBoxYes2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        score++;
+                    }
+                });
+
+                int rankcon=rank.getText().length();
+                if(rankcon>0 && rankcon<100){
+                    score+=3;
+                }
+                else if(rankcon>=100 && rankcon<=200){
+                    score+=2;
+                }
+                else if(rankcon>200) score++;
+
+
+                heiPostModel.setScore(String.valueOf(score));
+//                databaseReference.setValue(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(getContext(), "Data is sent to database!!!", Toast.LENGTH_SHORT).show();
+//                            startActivity(new Intent(getContext(),WaitingUser.class));
+
+
+
+
+
+//                if(flag){
+//                    String selectedItem = spinner.getSelectedItem().toString();
+//                    if(selectedSpinnerItem.contains(selectedItem)){
+//                        ((TextView)spinner.getSelectedView()).setError("can't selected already registered..!");
+//                    }
+//                    else{
+//                        selectedSpinnerItem.add(selectedItem);
+//                        startActivity(new Intent(getContext(),DashBoardActivity.class));
+//                    }
+//                }
+//                else{
+//                    startActivity(new Intent(getContext(),WaitingUser.class));
+//                }
+
+                startActivity(new Intent(getContext(),DashBoardActivity.class));
+
+
+
+//                        } else {
+//                            Toast.makeText(getContext(), "Failed to send the data!!!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//
+//                });
+//
             }
         });
 

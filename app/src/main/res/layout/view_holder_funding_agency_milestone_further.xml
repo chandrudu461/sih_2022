@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relativeLayout_further"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/fa_nameOfbudgetCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="testing"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/fa_amountOfCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/fa_nameOfbudgetCategory"
+        android:padding="10dp"
+        android:text="testing"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/fa_amount_entered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@id/fa_amountOfCategory"
+        android:hint="Enter amount"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textSize="12sp" />
+
+    <CheckBox
+        android:id="@+id/fa_checkbox_milestone_further"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/fa_amount_entered"
+        android:padding="10dp" />
+</RelativeLayout>
+

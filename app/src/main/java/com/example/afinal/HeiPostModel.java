@@ -13,9 +13,73 @@ public class HeiPostModel implements Serializable {
     public String selectedstate;
     public String selectedDistrict;
     public String pdfUri;
+    public String naac,nba,nirf;
+    public String proposalId;
+
+    public String getProposalId() {
+        return proposalId;
+    }
+
+    public void setProposalId(String proposalId) {
+        this.proposalId = proposalId;
+    }
+
+    public String getPsId() {
+        return psId;
+    }
+
+    public void setPsId(String psId) {
+        this.psId = psId;
+    }
+
+    public String psId;
+
+    public String getHeiUid() {
+        return heiUid;
+    }
+
+    public void setHeiUid(String heiUid) {
+        this.heiUid = heiUid;
+    }
+
+    public String heiUid;
+
+    public String getNaac() {
+        return naac;
+    }
+
+    public void setNaac(String naac) {
+        this.naac = naac;
+    }
+
+    public String getNba() {
+        return nba;
+    }
+
+    public void setNba(String nba) {
+        this.nba = nba;
+    }
+
+    public String getNirf() {
+        return nirf;
+    }
+
+    public void setNirf(String nirf) {
+        this.nirf = nirf;
+    }
+
     public String verify;
     public String declineReason;
 
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String score;
     public String uid;
     public String razorPayId;
 

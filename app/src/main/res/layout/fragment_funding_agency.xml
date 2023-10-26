@@ -14,7 +14,18 @@
             tools:context=".Fragments.FundingAgency">
 
             <!-- TODO: Update blank fragment layout -->
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:padding="10dp"
+                android:text="Fill details to register as Funding Agency"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/profilepic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
@@ -23,13 +34,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginEnd="35dp"
-                android:hint="Selecty Type Of Agency
-"
+                android:hint="Selecty Type Of Agency"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/name"
                 app:layout_constraintStart_toStartOf="@+id/name"
                 app:layout_constraintTop_toBottomOf="@+id/profilepic"
-                app:layout_constraintVertical_bias="0.060000002">
+                app:layout_constraintVertical_bias="0.030000002">
 
                 <AutoCompleteTextView
                     android:id="@+id/User_autoCompleteTextView"
@@ -43,7 +53,7 @@
                 android:id="@+id/profilepic"
                 android:layout_width="217dp"
                 android:layout_height="204dp"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="92dp"
                 android:src="@drawable/ic_baseline_account_circle_24"
                 app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout"
@@ -52,6 +62,8 @@
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
@@ -64,6 +76,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
             <EditText
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,6 +93,8 @@
 
             <EditText
                 android:id="@+id/founder"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -93,6 +109,8 @@
 
             <EditText
                 android:id="@+id/phn_no"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -107,6 +125,8 @@
 
             <EditText
                 android:id="@+id/portfolio"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -121,6 +141,8 @@
 
             <EditText
                 android:id="@+id/social_links"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -135,6 +157,8 @@
 
             <TextView
                 android:id="@+id/document"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
@@ -154,7 +178,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
-
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 android:layout_marginEnd="35dp"
                 android:hint="Select State"
                 android:textSize="18sp"

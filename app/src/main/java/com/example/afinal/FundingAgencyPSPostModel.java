@@ -3,6 +3,7 @@ package com.example.afinal;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class FundingAgencyPSPostModel implements Serializable {
     public String problemStatement;
@@ -13,6 +14,65 @@ public class FundingAgencyPSPostModel implements Serializable {
     public String deadline;
     public String eligibility;
     public String deliverables;
+    public String uid;
+    public String status;
+
+    public String getAccepted_proposal_uid() {
+        return accepted_proposal_uid;
+    }
+
+    public void setAccepted_proposal_uid(String accepted_proposal_uid) {
+        this.accepted_proposal_uid = accepted_proposal_uid;
+    }
+
+    public String accepted_proposal_uid;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ArrayList<HeiProposalModel> proposalModels;
+
+    public ArrayList<HeiProposalModel> getProposalModels() {
+        return proposalModels;
+    }
+
+    public void setProposalModels(ArrayList<HeiProposalModel> proposalModels) {
+        this.proposalModels = proposalModels;
+    }
+
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getPsId() {
+        return psId;
+    }
+
+    public void setPsId(String psId) {
+        this.psId = psId;
+    }
+
+    public String psId;
 
     public FundingAgencyPSPostModel() {
 //        problemStatement=new String("test project");

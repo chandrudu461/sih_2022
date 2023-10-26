@@ -21,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private FirebaseAuth mAuth;
     private TextView banner;
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextEmail, editTextPassword,editTextConfirmPassword;
     private Button registerUser,verifyMobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-        verifyMobile = findViewById(R.id.verifyMobile);
-        verifyMobile.setOnClickListener(this);
+        editTextConfirmPassword = findViewById(R.id.ConfirmPassword);
 
         banner = findViewById(R.id.banner);
         banner.setOnClickListener(this);
@@ -55,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void registerUser () {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+        String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
         if (email.isEmpty()) {
             editTextEmail.setError("email is required");
@@ -78,6 +78,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
+        if(!confirmPassword.equals(password)){
+            editTextConfirmPassword.setError("Password is not matching!!!");
+            editTextConfirmPassword.requestFocus();
+            return;
+        }
+
+
+
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {  // if user is created, task is successful.
@@ -93,5 +101,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
     }
-
 }

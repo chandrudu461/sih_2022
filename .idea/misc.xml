@@ -1,51 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/drawable-anydpi/manage_payments.xml" value="0.2555" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/drawable/border.xml" value="0.2545" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_hei_related.xml" value="0.72" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_related.xml" value="0.6" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_retrieval.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_admin_yes_or_no.xml" value="0.1" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_dashboard.xml" value="0.264" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_forgot_password.xml" value="0.24564102564102563" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_funding_agency_post.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_milestones.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_problem_statement_details.xml" value="0.23489583333333333" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_profile.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_register.xml" value="0.24564102564102563" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_testing_problem_statements.xml" value="0.4" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/activity_waiting_user.xml" value="0.264" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_about_us.xml" value="0.2359375" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_admin.xml" value="0.4" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency.xml" value="0.21220159151193635" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency_admin.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_funding_agency_post.xml" value="0.5087719298245614" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei.xml" value="0.4" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei_admin.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_hei_proposal.xml" value="0.264" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/fragment_view_p_s_hei.xml" value="0.4" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/header_layout.xml" value="0.20427350427350427" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/navigation_menu_admin.xml" value="0.25" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/navigation_menu_funding_agency.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/navigation_menu_hei.xml" value="0.20427350427350427" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/spinner_layout.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_funding_agency.xml" value="0.6" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_funding_agency_ps.xml" value="0.24791666666666667" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/layout/view_holder_hei.xml" value="0.536" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu-v26/navigation_menu_funding_agency.xml" value="0.10520833333333333" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_admin.xml" value="0.6" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_default.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_funding_agency.xml" value="0.46875" />
-        <entry key="..\:/Users/chand/AndroidStudioProjects/Final/app/src/main/res/menu/navigation_menu_hei.xml" value="0.6" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/drawable-hdpi/edit_text_background.xml" value="0.2595" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/drawable/header_shape.xml" value="0.2595" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_admin_retrieval.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_admin_yes_or_no.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_forgot_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_funding_agency_milestone_page.xml" value="0.3184979137691238" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_hei_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_milestone_further.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_milestone_page.xml" value="0.264" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_payment_form.xml" value="0.176" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_problem_statement_details.xml" value="0.152" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_proposal_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_proposal_status.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_proposal_validation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_razor_pay_payment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_splash_screen_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/activity_waiting_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/dropdown_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_about_us.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_bank_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_funding_agency.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_funding_agency_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_funding_agency_post.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_funding_agency_profile.xml" value="0.176" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_funding_agency_uploaded_p_s.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_hei.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_hei_admin.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_hei_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_hei_proposal.xml" value="0.264" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_milestone_further.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_proposal_validation.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/fragment_view_p_s_hei.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/header_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/reciever_view_holder.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/view_holder_milestone.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/view_holder_milestone_further.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/admin/Desktop/Final/app/src/main/res/layout/view_holder_proposal_hei.xml" value="0.20416666666666666" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_admin_retrieval.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_admin_yes_or_no.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_funding_agency_milestone_page.xml" value="0.1" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_milestone_page.xml" value="0.1" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_payment_form.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_problem_statement_details.xml" value="0.1" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_proposal_details.xml" value="0.4" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_proposal_status.xml" value="0.2" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_register.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/activity_splash_screen_main.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_funding_agency_post.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_funding_agency_profile.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_hei_profile.xml" value="0.24676668391101914" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_hei_proposal.xml" value="0.4" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_milestone_further.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/fragment_view_p_s_hei.xml" value="0.1" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/header_layout.xml" value="0.6" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_funding_agency.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_funding_agency_milestone_further.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_funding_agency_ps.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_hei.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_milestone.xml" value="0.2" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_milestone_further.xml" value="0.2484375" />
+        <entry key="..\:/chandu/ExtremeFinal/app/src/main/res/layout/view_holder_proposal_hei.xml" value="0.2484375" />
+        <entry key="..\:/chandu/Final/app/src/main/res/layout/activity_admin_retrieval.xml" value="0.24895833333333334" />
+        <entry key="..\:/chandu/Final/app/src/main/res/layout/fragment_hei_admin.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

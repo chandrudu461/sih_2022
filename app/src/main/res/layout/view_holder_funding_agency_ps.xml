@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="270dp"
     android:padding="5dp"
     android:id="@+id/view_holder_layout"
     android:layout_marginBottom="30dp"
-    android:background="@color/purple_200"
+    android:background="@drawable/bg_bluegrey"
     android:layout_margin="10dp">
 
     <ImageView
@@ -15,31 +15,18 @@
         android:paddingTop="5dp" />
 
     <TextView
+        android:id="@+id/holder_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/holder_txtview_item_type"
-        android:layout_marginTop="5dp"
-        android:textSize="30sp"
-        android:textColor="#000000"
-        android:background="#80757ED8"
         android:layout_centerHorizontal="true"
-        android:backgroundTintMode="screen"
-        android:textStyle="bold"
-        />
-
-    <TextView
-        android:id="@+id/holder_item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/holder_txtview_item_type"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_toRightOf="@id/holder_imgview"
-        android:hint="Name of Funding Agency"
-        android:padding="5dp"
-        android:textSize="18sp" />
+        android:background="#80757ED8"
+        android:backgroundTintMode="screen"
+        android:text="Department of Bio-Technology"
+        android:textColor="#ffffff"
+        android:textSize="27sp"
+        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/holder_item_ps"
@@ -51,8 +38,9 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:hint="problem Statement"
-        android:padding="5dp" />
+        android:text="Neglect of Crop rotation or cropping pattern"
+        android:padding="5dp"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/holder_item_deadline"
@@ -64,20 +52,22 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:hint="Days left"
-        android:padding="5dp" />
+        android:text="50 Days left"
+        android:padding="5dp"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/holder_item_budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:layout_below="@id/holder_item_deadline"
         android:layout_marginStart="3dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:hint="Budget"
+        android:text="Budget- 100000"
         android:padding="5dp" />
     <!--        android:backgroundTint="#808080"-->
     <LinearLayout

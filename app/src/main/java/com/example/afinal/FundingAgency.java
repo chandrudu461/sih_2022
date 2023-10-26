@@ -3,6 +3,7 @@ package com.example.afinal;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -66,6 +67,7 @@ public class FundingAgency extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_funding_agency, container, false);
+        SharedPreferences sharedPreferences= getContext().getSharedPreferences(String.valueOf((R.string.shared_preferences_user_details)), Context.MODE_PRIVATE);
 
         //declaration of for State District fields
 
@@ -84,6 +86,7 @@ public class FundingAgency extends Fragment {
         districtSpinner = view.findViewById(R.id.spinner_indian_districts);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Users").child("Funding Agency").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        sharedPreferences.edit().putString("FS_uid",FirebaseAuth.getInstance().getCurrentUser().getUid()).commit();
 
         //declaring vairables for user drop down
         String[] items = {"Government", "Government-aided", "Private"};
@@ -93,8 +96,8 @@ public class FundingAgency extends Fragment {
 
         //initializing variables for user drop down
         UserAutoCompleteTextView = view.findViewById(R.id.User_autoCompleteTextView);
-             adapterItems = new ArrayAdapter<String>(this.getContext(),R.layout.dropdown_item, items);
-           UserAutoCompleteTextView.setAdapter(adapterItems);
+        adapterItems = new ArrayAdapter<String>(this.getContext(),R.layout.dropdown_item, items);
+        UserAutoCompleteTextView.setAdapter(adapterItems);
         UserAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -109,8 +112,8 @@ public class FundingAgency extends Fragment {
         stateSpinner = view.findViewById(R.id.spinner_indian_states);    //Finds a view that was identified by the android:id attribute in xml
 
         //Populate ArrayAdapter using string array and a spinner layout that we will define
-          stateAdapter = ArrayAdapter.createFromResource(getContext(),
-                  R.array.array_indian_states, R.layout.spinner_layout);
+        stateAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.array_indian_states, R.layout.spinner_layout);
 
         // Specify the layout to use when the list of choices appear
         stateAdapter.setDropDownViewResource(R.layout.dropdown_item);
@@ -345,17 +348,17 @@ public class FundingAgency extends Fragment {
                 fundingAgencyPostModel.setUid(uid);
                 firebaseUtilities.uploadFundingAgencyPdf(selectedPDFDeclarationUri,fundingAgencyPostModel);
                 firebaseUtilities.uploadFundingAgencyImage(selectedImageUri,fundingAgencyPostModel);
-                databaseReference.setValue(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getContext(), "Data sent to database!!!", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(getContext(), "Failed to send data to database!!!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+//                databaseReference.setValue(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if(task.isSuccessful()){
+//                            Toast.makeText(getContext(), "Data sent to database!!!", Toast.LENGTH_SHORT).show();
+//                        }
+//                        else{
+//                            Toast.makeText(getContext(), "Failed to send data to database!!!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
 //                Intent in = new Intent(getContext(),WaitingUser.class);
                 Intent in = new Intent(getContext(), DashBoardActivity.class);
                 in.putExtra("user",fundingAgencyPostModel);

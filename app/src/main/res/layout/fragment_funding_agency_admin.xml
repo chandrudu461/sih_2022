@@ -4,5 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".AdminRelated"
+    android:padding="10dp"
+    android:layout_margin="10dp"
 android:id="@+id/recyclerView_Allevents">
 </androidx.recyclerview.widget.RecyclerView>

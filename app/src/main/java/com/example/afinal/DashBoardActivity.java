@@ -1,10 +1,7 @@
 package com.example.afinal;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -14,11 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -29,6 +24,7 @@ public class DashBoardActivity extends AppCompatActivity {
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    String user;
     FrameLayout frameLayout;
     FundingAgencyPostModel fundingAgencyPostModel;
     private SharedPreferences sharedPreferences;
@@ -46,6 +42,9 @@ public class DashBoardActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         frameLayout = findViewById(R.id.frame_layout_dashboard);
 
+        user = sharedPreferences.getString("userType","default");
+
+
 
         fundingAgencyPostModel = (FundingAgencyPostModel) getIntent().getSerializableExtra("user");
 
@@ -57,7 +56,6 @@ public class DashBoardActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         onCreateOptionsMenu(navigationView);
-
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
         // fragmentHeading.setText("All Events")
@@ -72,12 +70,40 @@ public class DashBoardActivity extends AppCompatActivity {
                     case R.id.menuitem_managePayments:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new AboutUsFragment()).commit();
                         return true;
-                    case R.id.menuitem_proposed_fund:
+                    case R.id.menuitem_upload_fund:
                         Fragment fragment = FundingAgencyPost.newInstance(fundingAgencyPostModel);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, fragment).commit();
                         return true;
-//                    case R.id.menuitem_problem_feed:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new ViewPSHei()).commit();
+                    case R.id.menuitem_problem_feed:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new ViewPSHei()).commit();
+                        return true;
+                    case R.id.menuitem_proposed_fund:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new FundingAgencyUploadedPS()).commit();
+                        return true;
+                    case R.id.menuitem_proposed_hei:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new ProposalValidation()).commit();
+                        return true;
+                    case R.id.menuitem_bank_fund:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new BankDetails()).commit();
+                        return true;
+                    case R.id.menuitem_bank_hei:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new BankDetails()).commit();
+                        return true;
+                    case R.id.menuitem_aboutUs:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new AboutUsFragment()).commit();
+                        return true;
+
+                    case R.id.menuitem_myProfile:
+                        if(user.equals("FundingAgency")){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard,new FundingAgencyProfile()).commit();
+
+                        }
+                        if(user.equals("HEI")) {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout_dashboard, new HeiProfile()).commit();
+                        }
+                        return true;
+
+
                     default:
                         drawerLayout.openDrawer(GravityCompat.START);
                         return true;
@@ -151,30 +177,30 @@ public class DashBoardActivity extends AppCompatActivity {
 //        }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (navigationView != null) {
-            navigationView.getMenu().clear(); //clear old inflated items.
-            navigationView.inflateMenu(R.menu.navigation_menu_default);
-
-            // we need redirect the respective menu according to the user
-            String user = sharedPreferences.getString("userType", "HEI");
-            if (user == "Admin") {
-//            inflater.inflate(R.menu.navigation_menu_admin,menu);
-                navigationView.inflateMenu(R.menu.navigation_menu_admin);
-            }
-            if (user == "HEI") {
-//            inflater.inflate(R.menu.navigation_menu_hei, menu);
-                navigationView.inflateMenu(R.menu.navigation_menu_hei);
-            }
-            if (user == "FundingAgency") {
-//            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
-                navigationView.inflateMenu(R.menu.navigation_menu_funding_agency);
-            }
-            Toast.makeText(this, user, Toast.LENGTH_SHORT).show();
-        }
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        if (navigationView != null) {
+//            navigationView.getMenu().clear(); //clear old inflated items.
+//            navigationView.inflateMenu(R.menu.navigation_menu_default);
+//
+//            // we need redirect the respective menu according to the user
+//            String user = sharedPreferences.getString("userType", "HEI");
+//            if (user == "Admin") {
+////            inflater.inflate(R.menu.navigation_menu_admin,menu);
+//                navigationView.inflateMenu(R.menu.navigation_menu_admin);
+//            }
+//            if (user == "HEI") {
+////            inflater.inflate(R.menu.navigation_menu_hei, menu);
+//                navigationView.inflateMenu(R.menu.navigation_menu_hei);
+//            }
+//            if (user == "FundingAgency") {
+////            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
+//                navigationView.inflateMenu(R.menu.navigation_menu_funding_agency);
+//            }
+//            Toast.makeText(this, user, Toast.LENGTH_SHORT).show();
+//        }
+//    }
     public boolean onCreateOptionsMenu(NavigationView navigationView) {
 //        MenuInflater inflater = getMenuInflater();
 
@@ -182,16 +208,16 @@ public class DashBoardActivity extends AppCompatActivity {
         navigationView.inflateMenu(R.menu.navigation_menu_default);
 
         // we need redirect the respective menu according to the user
-        String user=sharedPreferences.getString("userType","HEI");
-        if(user == "Admin"){
+        String user=sharedPreferences.getString("userType","default");
+        if(user.equals("Admin")){
 //            inflater.inflate(R.menu.navigation_menu_admin,menu);
             navigationView.inflateMenu(R.menu.navigation_menu_admin);
         }
-        if(user == "HEI"){
+        if(user.equals("HEI")){
 //            inflater.inflate(R.menu.navigation_menu_hei, menu);
             navigationView.inflateMenu(R.menu.navigation_menu_hei);
         }
-        if(user == "FundingAgency"){
+        if(user.equals("FundingAgency")){
 //            inflater.inflate(R.menu.navigation_menu_funding_agency, menu);
             navigationView.inflateMenu(R.menu.navigation_menu_funding_agency);
         }

@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="mustard">#F9AA33</color>
+    <color name="darkgrey">#232f34</color>
+    <color name="lightgrey">#4a6572</color>
+    <color name="midgrey">#344955</color>
+    <color name="edit_text">#14000000</color>
+    <color name="signupbuttonpage">#BE0BACB1</color>
 </resources>

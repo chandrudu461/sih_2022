@@ -5,7 +5,7 @@
     android:padding="5dp"
     android:id="@+id/view_holder_layout"
     android:layout_marginBottom="30dp"
-    android:background="@color/purple_200"
+    android:background="@drawable/bg_bluegrey"
     android:layout_margin="10dp">
 
     <ImageView
@@ -22,7 +22,7 @@
         android:layout_marginTop="5dp"
         android:textSize="30sp"
         android:textColor="#000000"
-        android:background="#80757ED8"
+        android:background="@color/lightgrey"
         android:layout_centerHorizontal="true"
         android:backgroundTintMode="screen"
         android:textStyle="bold"
@@ -38,37 +38,48 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:hint="Name of Funding Agency"
+        android:text="Government-aided AICTE"
         android:padding="5dp"
         android:textSize="18sp" />
+
     <TextView
+        android:id="@+id/holder_item_founder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/holder_item_name"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_founder"
-        android:hint="founder of agency"
-        android:layout_margin="3dp"
-        android:padding="5dp"/>
+        android:text="Anil Ravupudi"
+        android:padding="5dp" />
+
     <TextView
+        android:id="@+id/holder_item_phn_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/holder_item_founder"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_phn_no"
-        android:hint="phone Number"
-        android:layout_margin="3dp"
-        android:padding="5dp"/>
+        android:text="9912355019"
+        android:padding="5dp" />
+
     <TextView
+        android:id="@+id/holder_item_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/holder_item_phn_no"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
         android:layout_toRightOf="@id/holder_imgview"
-        android:id="@+id/holder_item_state"
-        android:hint="State"
-        android:layout_margin="3dp"
         android:padding="5dp"
-        />
+        android:text="Telangana" />
     <!--        android:backgroundTint="#808080"-->
     <LinearLayout
         android:id="@+id/linearlayout_holder"

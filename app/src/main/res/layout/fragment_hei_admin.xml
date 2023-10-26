@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HeiAdminFragment"
-    android:id="@+id/recyclerViewHei_Allevents">
+    android:id="@+id/recyclerViewHei_Allevents"
+    android:layout_margin="10dp"
+    android:padding="10dp">
 
 </androidx.recyclerview.widget.RecyclerView>

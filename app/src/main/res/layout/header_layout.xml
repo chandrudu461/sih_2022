@@ -1,38 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="#FFA4A2"
+    android:layout_height="160dp"
+    android:background="@drawable/header_shape"
     android:id="@+id/header_layout">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textview_role"
-        android:text="Role"
+        android:text="UGC"
         android:textSize="22sp"
         android:textColor="#ffffff"
         android:padding="5dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/img_logo_ucg"
+        android:layout_marginTop="20dp"
+
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textview_name"
-        android:text="Name"
+        android:text="DEPARTMENT OF HIGHER EDUCATION"
         android:layout_below="@id/textview_role"
-        android:textSize="22sp"
+        android:layout_toRightOf="@id/img_logo_ucg"
+        android:textSize="15sp"
         android:textColor="#ffffff"
         android:padding="5dp"
-        android:layout_marginLeft="30dp"
+       />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview_quote"
+        android:text="we CONNECT to UNITE"
+        android:layout_below="@id/textview_name"
+        android:layout_toRightOf="@id/img_logo_ucg"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        android:padding="5dp"
         />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/handshakeAnimation"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/textview_name"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toRightOf="@id/textview_quote"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/handsshake" />
+
     <ImageView
+        android:id="@+id/img_logo_ucg"
         android:layout_width="110dp"
-        android:layout_height="100dp"
-        android:background="@drawable/ic_baseline_location_on_24"
-        android:layout_alignParentRight="true"
-        android:layout_margin="30dp"
+        android:layout_height="110dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ugc_logo_removebg"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="20dp"
         />
 
 </RelativeLayout>

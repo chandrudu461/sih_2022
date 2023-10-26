@@ -4,6 +4,7 @@ import android.app.NativeActivity;
 import android.app.ProgressDialog;
 import android.app.backup.FullBackupDataOutput;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -51,8 +54,7 @@ public class FirebaseUtilities {
         storageReference.putFile(uri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                if(task.isSuccessful()){
-                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                if(task.isSuccessful()){                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             progressDialog.dismiss();
@@ -230,45 +232,56 @@ public class FirebaseUtilities {
         DocumentReference documentReference= firebaseFirestore.collection("Funding Agency").document(firebaseUser.getUid());
         fundingAgencyPostModel.setDocumentReference(documentReference.getId());
 
-        documentReference.set(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    progressDialog.dismiss();
-                    Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                e.printStackTrace();
-                Toast.makeText(context, "profile posting failed..!", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        DatabaseReference databaseReference;
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child("Funding Agency").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        databaseReference.setValue(fundingAgencyPostModel);
+        progressDialog.dismiss();
+        //        documentReference.set(fundingAgencyPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if(task.isSuccessful()){
+//                    progressDialog.dismiss();
+//                    Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                progressDialog.dismiss();
+//                e.printStackTrace();
+//                Toast.makeText(context, "profile posting failed..!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private void postHeiDetails(HeiPostModel heiPostModel) {
         progressDialog.show();
 
-        DocumentReference documentReference= firebaseFirestore.collection("Hei").document(firebaseUser.getUid());
-        heiPostModel.setDocumentReference(documentReference.getId());
+//        DocumentReference documentReference= firebaseFirestore.collection("Hei").document(firebaseUser.getUid());
+//        heiPostModel.setDocumentReference(documentReference.getId());
 
-        documentReference.set(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                progressDialog.dismiss();
-                Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
+//        documentReference.set(heiPostModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                progressDialog.dismiss();
+//                Toast.makeText(context, "Posted Successfully!!!", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                progressDialog.dismiss();
+//                e.printStackTrace();
+//                Toast.makeText(context, "profile posting failed..!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                e.printStackTrace();
-                Toast.makeText(context, "profile posting failed..!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        DatabaseReference databaseReference;
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Hei").child(firebaseUser.getUid());
+        databaseReference.setValue(heiPostModel);
+        progressDialog.dismiss();
 
     }
     public void uploadFundingAgencyPdf(Uri uri, FundingAgencyPostModel fundingAgencyPostModel) {

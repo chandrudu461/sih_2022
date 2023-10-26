@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewHolder_milestone"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_margin="5dp"
+    android:background="@color/midgrey"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/expand_further_milestone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_holder_milestone_estimatedBudget"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/blue_btn"
+        android:text="expand milestone" />
+
+
+    <TextView
+        android:id="@+id/view_holder_milestone_name"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/roundedcorners"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/view_holder_milestone_deadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_holder_milestone_name"
+        android:layout_margin="20dp"
+        android:background="@drawable/roundedcorners"
+        android:padding="10dp"
+        android:text="Milestone Deadline" />
+
+    <TextView
+        android:id="@+id/view_holder_milestone_deliverable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_holder_milestone_deadline"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/roundedcorners"
+        android:padding="10dp"
+        android:text="milestone Deliverables" />
+
+    <TextView
+        android:id="@+id/view_holder_milestone_estimatedBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_holder_milestone_deliverable"
+        android:layout_margin="15dp"
+
+        android:background="@drawable/roundedcorners"
+        android:padding="10dp"
+        android:text="Estimated Budget" />
+
+    <ImageView
+        android:id="@+id/status_connected"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/view_holder_milestone_name"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/view_holder_milestone_deadline"
+        android:padding="10dp"
+        android:text="Status" />
+    <!--        android:background="@drawable/pending"-->/>
+
+    <TextView
+        android:id="@+id/upload_deliverables"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status_connected"
+        android:layout_toRightOf="@id/view_holder_milestone_deadline"
+        android:padding="7dp"
+        android:text="Upload Deliverables"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/download_deliverables"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status_connected"
+        android:layout_toRightOf="@id/view_holder_milestone_deadline"
+        android:padding="5dp"
+        android:text="Download Deliverables"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+</RelativeLayout>

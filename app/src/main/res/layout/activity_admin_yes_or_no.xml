@@ -5,14 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminYesOrNo">
-
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="300dp"
+        android:background="@drawable/rectprof"
+        android:layout_centerHorizontal="true"/>
     <ImageView
         android:id="@+id/view_profilepic"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="180dp"
+        android:layout_height="160dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
@@ -23,12 +27,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/view_profilepic"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:hint="Test hint"
-        android:padding="10dp"
+        android:hint="Problem Statement"
+        android:padding="20dp"
         android:textSize="15sp" />
 
     <TextView
@@ -36,25 +40,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtView_ps"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:hint="Test hint"
+        android:layout_marginEnd="20dp"
+
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        android:textSize="15sp" />
+        android:padding="20dp"
+        android:textSize="15sp"
+        android:hint="Problem Statement Description"
+        />
 
     <TextView
         android:id="@+id/funding_agency_name"
         android:layout_width="match_parent"
-        android:hint="Test hint"
+        android:hint="Funding Agency Name"
         android:layout_height="wrap_content"
         android:layout_below="@id/ps_description"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
+        android:padding="20dp"
         android:textSize="15sp" />
 
     <TextView
@@ -62,22 +68,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/funding_agency_name"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        android:textSize="15sp" />
+        android:padding="20dp"
+        android:textSize="15sp"
+        android:hint="Budget Proposal"/>
 
     <Button
         android:id="@+id/accept_offer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/admin_budget"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
-        android:padding="5dp"
+        android:padding="10dp"
+        android:background="@drawable/roundedcorners"
         android:text="Accept" />
 
     <Button
@@ -85,11 +93,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/admin_budget"
-        android:layout_marginLeft="96dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="20dp"
         android:layout_toRightOf="@id/accept_offer"
-        android:padding="5dp"
+        android:padding="10dp"
+        android:background="@drawable/roundedcorners"
         android:text="Decline" />
 
     <EditText
@@ -98,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/accept_offer"
         android:padding="10dp"
+        android:layout_margin="15dp"
         android:visibility="invisible" />
 
     <Button
@@ -106,7 +116,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textBox"
         android:visibility="invisible"
-        android:padding="10dp"
+        android:padding="15dp"
+        android:background="@drawable/roundedcorners"
+        android:layout_margin="15dp"
         android:text="submit">
 
     </Button>

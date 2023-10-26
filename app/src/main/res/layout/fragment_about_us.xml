@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutUsFragment">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:background="@drawable/ojp"
+        android:id="@+id/oneimg"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/twoimg"
+        android:layout_below="@id/oneimg"
+        android:background="@drawable/twjp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="600dp"
+        android:id="@+id/threeimg"
+        android:layout_below="@id/twoimg"
+        android:background="@drawable/onejp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fourimg"
+        android:layout_below="@id/threeimg"
+        android:background="@drawable/fojp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:id="@+id/fiveimg"
+        android:layout_below="@id/fourimg"
+        android:background="@drawable/fijp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:id="@+id/siximg"
+        android:background="@drawable/sijp"
+        android:layout_below="@id/fiveimg"/>
+</RelativeLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+</ScrollView>

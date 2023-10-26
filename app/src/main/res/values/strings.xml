@@ -3,6 +3,17 @@
     <string name="scroll">scroll</string>n
     <string name="profilepic">profilepic</string>
 
+    <string-array name="aicte_ids">
+
+        <item>1234</item>
+        <item>8982</item>
+        <item>15345</item>
+        <item>125343</item>
+        <item>34546</item>
+        <item>2454</item>
+
+    </string-array>
+
 
     //declaring string items for user dropdown
     <string name="User">User</string>

@@ -9,153 +9,359 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         android:contentDescription="@string/scroll"
-        >
+        android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".MainActivity">
-
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Enter details to register as HEI"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="#f55a48"
+                android:layout_margin="15dp"
+                android:id="@+id/textnewtemp"/>
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="152dp"
+                android:layout_width="218dp"
+                android:layout_height="139dp"
+                android:layout_marginTop="14dp"
+                android:layout_below="@id/textnewtemp"
                 android:contentDescription="@string/profilepic"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/ic_baseline_account_circle_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                android:layout_centerHorizontal="true"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinner_aicte_hei"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="Select Your AICTE CODE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.745"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_below="@+id/textView" />
 
             <EditText
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/roundedcorners"
                 android:ems="10"
                 android:hint="Name of HEI"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:padding="10dp"
+
                 app:layout_constraintEnd_toEndOf="@+id/yearHei"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/yearHei"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                android:layout_below="@+id/imageView" />
 
             <EditText
                 android:id="@+id/yearHei"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/roundedcorners"
                 android:ems="10"
                 android:hint="Year of Establishment"
                 android:inputType="date"
                 android:minHeight="48dp"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/code"
                 app:layout_constraintStart_toStartOf="@+id/code"
-                app:layout_constraintTop_toBottomOf="@+id/name" />
+                android:layout_below="@+id/name" />
 
             <EditText
                 android:id="@+id/code"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/roundedcorners"
                 android:ems="10"
                 android:hint="AICTE Code"
                 android:inputType="number"
                 android:minHeight="48dp"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/link"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/link"
-                app:layout_constraintTop_toBottomOf="@+id/yearHei" />
+                android:layout_below="@+id/spinner_aicte_hei" />
 
             <EditText
                 android:id="@+id/link"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/roundedcorners"
                 android:ems="10"
                 android:hint="link"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/spinner_indian_states"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView_indian_states"
-                app:layout_constraintTop_toBottomOf="@+id/code" />
+                android:layout_below="@+id/code" />
 
             <TextView
                 android:id="@+id/textView_indian_states"
-                android:layout_width="211dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/roundedcorners"
                 android:hint="Select State"
+                android:padding="10dp"
                 app:layout_constraintStart_toStartOf="@+id/spinner_indian_states"
-                app:layout_constraintTop_toBottomOf="@id/link" />
+                android:layout_below="@id/link" />
 
             <Spinner
                 android:id="@+id/spinner_indian_states"
-                android:layout_width="211dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/textView_indian_districts"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView_indian_districts"
-                app:layout_constraintTop_toBottomOf="@+id/textView_indian_states" />
+                android:layout_below="@+id/textView_indian_states" />
 
             <TextView
                 android:id="@+id/textView_indian_districts"
-                android:layout_width="211dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/roundedcorners"
                 android:hint="Select District"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/spinner_indian_districts"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/spinner_indian_districts"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_states" />
+                android:layout_below="@+id/spinner_indian_states" />
 
             <Spinner
                 android:id="@+id/spinner_indian_districts"
-                android:layout_width="211dp"
-                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/roundedcorners"
+                android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/button"
                 app:layout_constraintStart_toStartOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/textView_indian_districts" />
+                android:layout_below="@+id/textView_indian_districts" />
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="91dp"
-                android:layout_height="51dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nirfrank"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:padding="10dp"
                 android:text="Submit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.65"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pdfSelect" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/pdfSelect"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_below="@+id/spinner_indian_districts"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/roundedcorners"
                 android:drawableLeft="@drawable/ic_baseline_picture_as_pdf_24"
+                android:padding="10dp"
                 android:text="Select Your Broucher PDF"
-                app:layout_constraintEnd_toStartOf="@+id/textView3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts" />
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView3"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="20dp"-->
+            <!--                android:layout_marginEnd="20dp"-->
+            <!--                android:text="Select Your Broucher PDF"-->
+            <!--                android:background="@drawable/roundedcorners"-->
+            <!--                android:padding="10dp"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/button"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts"-->
+            <!--                app:layout_constraintVertical_bias="1.0" />-->
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="72dp"
-                app:layout_constraintBottom_toTopOf="@+id/button"
+                android:layout_margin="20dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/roundedcorners"
+                android:hint="select your aicte code"
+                android:padding="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/spinner_aicte_hei"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner_indian_districts"
-                app:layout_constraintVertical_bias="0.298" />
+                app:layout_constraintHorizontal_bias="0.745"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_below="@+id/yearHei" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="371dp"-->
+<!--                android:layout_height="39dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:text=-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/pdfSelect" />-->
+            <RelativeLayout
+                android:id="@+id/relativelayout_naac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pdfSelect"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NAAC ACCREDITION"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="#e0e0e0"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/androidCheckBoxnaac1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:checked="false"
+                        android:padding="20dp"
+                        android:text="Yes"
+                        android:textColor="#44f"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic" />
+
+                    <CheckBox
+                        android:id="@+id/javaCheckBoxnaac2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:checked="false"
+                        android:padding="20dp"
+                        android:text="No"
+                        android:textColor="#f44"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/textView32"-->
+<!--                android:layout_width="381dp"-->
+<!--                android:layout_height="31dp"-->
+<!--                android:layout_marginTop="84dp"-->
+<!--                android:text="NBA ACCREDITION"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.384"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:layout_below="@id/relativelayout_naac" />-->
+            <RelativeLayout
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativelayout_naac"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NBA ACCREDITION"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:background="#e0e0e0"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/androidCheckBoxnba1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:checked="false"
+                        android:padding="20dp"
+                        android:text="Yes"
+                        android:textColor="#44f"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic" />
+
+                    <CheckBox
+                        android:id="@+id/javaCheckBoxnba2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:checked="false"
+                        android:padding="20dp"
+                        android:text="No"
+                        android:textColor="#f44"
+                        android:textSize="20sp"
+                        android:textStyle="bold|italic" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/nirfrank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView32"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/roundedcorners"
+                android:hint="NIRF RANK"
+                android:inputType="number"
+                android:padding="20dp" />
+
+        </RelativeLayout>
     </ScrollView>
 
 </FrameLayout>

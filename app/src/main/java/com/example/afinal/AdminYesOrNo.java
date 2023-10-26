@@ -2,12 +2,8 @@ package com.example.afinal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +18,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
-
-import java.io.Serializable;
 
 public class AdminYesOrNo extends AppCompatActivity {
 
@@ -76,8 +70,8 @@ public class AdminYesOrNo extends AppCompatActivity {
 //            presentUser = (HeiPostModel) getIntent().getSerializableExtra("UserToBeVerified");
 //        }
 
-            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Funding Agency").child(presentUser.getUid());
-//                .child(presentUser.getUid());
+//            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Funding Agency").child(presentUser.getFundingAgencyUid());
+////                .child(presentUser.getUid());
 
             i = findViewById(R.id.view_profilepic);
             t1 = findViewById(R.id.txtView_ps);

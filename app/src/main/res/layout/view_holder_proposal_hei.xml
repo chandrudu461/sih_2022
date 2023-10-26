@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_holder_layout_proposal_hei"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginBottom="30dp"
+    android:background="@drawable/bg_viewholder"
+    android:padding="5dp">
+
+    <!--        android:background="@drawable/ic_baseline_account_circle_24"-->
+
+
+    <ImageView
+        android:id="@+id/holder_imgview2"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:paddingTop="5dp" />
+
+    <TextView
+        android:id="@+id/holder_hei_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/roundedcorners"
+        android:backgroundTintMode="screen"
+        android:padding="5dp"
+        android:text="MVSR Engineering College"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <!--        android:backgroundFill="#ffffff"-->
+
+
+    <TextView
+        android:id="@+id/holder_expected_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/holder_hei_name"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toRightOf="@id/holder_imgview2"
+        android:text="6 months"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/holder_expected_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/holder_expected_duration"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toRightOf="@id/holder_imgview2"
+        android:hint="Budget- 100000"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <!--        android:backgroundTint="#808080"-->
+    <TextView
+        android:id="@+id/holder_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/holder_expected_budget"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/holder_imgview2"
+        android:padding="10dp"
+        android:text="rating-9"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:background="#993F51B5"
+        android:gravity="fill_horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btn_view_HeiProfile"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="View HEI"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_open_proposal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="5dp"
+            android:text="Open proposal"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/linearlayout_holder"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="Retrieved based on the score calculated"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
